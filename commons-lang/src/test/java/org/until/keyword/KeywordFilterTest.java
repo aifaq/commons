@@ -4,6 +4,7 @@
 package org.until.keyword;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.until.keyword.dictionary.DartsDictionaryBuilder;
 
@@ -15,6 +16,7 @@ import org.until.keyword.dictionary.DartsDictionaryBuilder;
  * @author Wang Wei
  * @since 8:01:05 PM Jun 24, 2016
  */
+@Ignore
 public class KeywordFilterTest {
 
 	KeywordFilter keywordFilter;

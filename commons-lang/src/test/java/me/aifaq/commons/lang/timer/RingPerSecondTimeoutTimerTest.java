@@ -2,6 +2,7 @@ package me.aifaq.commons.lang.timer;
 
 import com.google.common.collect.Maps;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Map;
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit;
  * @author Wang Wei
  * @since 17:34 2017/6/26
  */
+@Ignore
 public class RingPerSecondTimeoutTimerTest {
 	RingPerSecondTimeoutTimer timer;
 

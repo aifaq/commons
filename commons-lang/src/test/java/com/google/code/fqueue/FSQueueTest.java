@@ -20,12 +20,14 @@ import java.util.List;
 
 import junit.framework.TestCase;
 import org.apache.commons.lang3.SystemUtils;
+import org.junit.Ignore;
 
 /**
  * @author sunli
  * @date 2010-8-13
  * @version $Id: FSQueueTest.java 42 2011-08-16 03:00:00Z sunli1223@gmail.com $
  */
+@Ignore
 public class FSQueueTest extends TestCase {
     private static FQueue queue;
     static {
