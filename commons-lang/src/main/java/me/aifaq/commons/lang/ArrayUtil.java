@@ -2,7 +2,8 @@ package me.aifaq.commons.lang;
 
 import com.google.common.base.Preconditions;
 import me.aifaq.commons.lang.base.Function;
-import me.aifaq.commons.lang.base.OperateFunction;
+import me.aifaq.commons.lang.base.MappableFunction;
+import me.aifaq.commons.lang.base.OperableFunction;
 import me.aifaq.commons.lang.base.TypeFunction;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -12,7 +13,7 @@ import java.math.BigDecimal;
 import java.util.*;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 15:14 2017/5/22
  */
 public class ArrayUtil {
@@ -135,6 +136,35 @@ public class ArrayUtil {
 	}
 
 	/**
+	 * 自定义函数转换得到Map
+	 *
+	 * @param sources  源数据集合
+	 * @param function 转换函数
+	 * @param <S>      源数据类型
+	 * @param <K, V>      目标数据类型
+	 * @return
+	 */
+	public static <S, K, V> Map<K, V> transformMap(S[] sources, MappableFunction<S, K, V> function) {
+		Preconditions.checkNotNull(function);
+
+		if (ArrayUtils.isEmpty(sources)) {
+			return new HashMap<>();
+		}
+		final Map<K, V> targets = new HashMap<>();
+		for (S source : sources) {
+			if (source == null && function.skipIfNull()) {
+				continue;
+			}
+			final Map.Entry<K, V> entry = function.apply(source);
+			if (entry == null && function.skipIfApplyNull()) {
+				continue;
+			}
+			targets.put(entry.getKey(), entry.getValue());
+		}
+		return targets;
+	}
+
+	/**
 	 * 求和
 	 *
 	 * @param sources  源数据集合
@@ -142,7 +172,7 @@ public class ArrayUtil {
 	 * @param <S>      源数据类型
 	 * @return
 	 */
-	public static <S> BigDecimal sum(S[] sources, OperateFunction<S> function) {
+	public static <S> BigDecimal sum(S[] sources, OperableFunction<S> function) {
 		Preconditions.checkNotNull(function);
 
 		if (ArrayUtils.isEmpty(sources)) {
@@ -150,11 +180,11 @@ public class ArrayUtil {
 		}
 		BigDecimal result = BigDecimal.ZERO;
 		for (S source : sources) {
-			if (source == null) {
+			if (source == null && function.skipIfNull()) {
 				continue;
 			}
 			final BigDecimal target = function.apply(source);
-			if (target == null) {
+			if (target == null && function.skipIfApplyNull()) {
 				continue;
 			}
 			result = result.add(target);

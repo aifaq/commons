@@ -8,7 +8,8 @@ import java.security.PrivilegedAction;
 
 /**
  * 封装sun包的一些调用
- * @author Wang Wei
+ *
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 11:00 2017/5/30
  */
 public class SunUtil {

@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 15:15 2017/6/16
  */
 public class ByteUtilTest {

@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 10:10 2017/5/17
  */
 public class IpUtil {

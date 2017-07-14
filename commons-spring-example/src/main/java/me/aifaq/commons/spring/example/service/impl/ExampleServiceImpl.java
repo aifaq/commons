@@ -7,7 +7,7 @@ import me.aifaq.commons.spring.example.service.ExampleService;
 import org.springframework.stereotype.Service;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 16:19 2017/6/16
  */
 @Service

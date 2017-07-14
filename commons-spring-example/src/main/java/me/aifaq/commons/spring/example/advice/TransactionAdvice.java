@@ -11,7 +11,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 18:56 2017/6/16
  */
 @Service

@@ -9,7 +9,7 @@ import java.text.ParseException;
 import java.util.Date;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 10:10 2017/5/17
  */
 public abstract class DateUtil {

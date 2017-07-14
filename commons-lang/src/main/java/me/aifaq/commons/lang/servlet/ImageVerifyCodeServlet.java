@@ -14,7 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 10:09 2017/5/17
  */
 public class ImageVerifyCodeServlet extends HttpServlet {

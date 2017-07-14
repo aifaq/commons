@@ -20,7 +20,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * 5. 过期的元素会回调用钩子{@link Handler#handle(Object)}，该方法会被{@link #executor}异步处理
  * </pre>
  *
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 9:34 2017/6/26
  */
 public class RingPerSecondTimeoutTimer<T> {

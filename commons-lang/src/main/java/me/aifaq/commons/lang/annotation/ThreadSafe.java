@@ -3,7 +3,7 @@ package me.aifaq.commons.lang.annotation;
 import java.lang.annotation.*;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 15:45 2017/5/22
  */
 @Documented

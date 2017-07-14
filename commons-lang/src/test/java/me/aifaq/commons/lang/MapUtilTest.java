@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.concurrent.Callable;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 20:35 2017/6/23
  */
 public class MapUtilTest {

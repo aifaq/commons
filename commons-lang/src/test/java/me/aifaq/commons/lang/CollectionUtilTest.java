@@ -1,8 +1,7 @@
 package me.aifaq.commons.lang;
 
-import me.aifaq.commons.lang.base.DefaultFunction;
-import me.aifaq.commons.lang.CollectionUtil;
-import me.aifaq.commons.lang.MapUtil;
+import me.aifaq.commons.lang.base.FunctionAdapter;
+import me.aifaq.commons.lang.base.MappableFunction;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 19:50 2017/6/12
  */
 public class CollectionUtilTest {
@@ -23,7 +22,7 @@ public class CollectionUtilTest {
 			sources.add(MapUtil.newHashMap("id", i));
 		}
 		final List<Integer> idList = CollectionUtil
-				.transformList(sources, new DefaultFunction<Map<String, Integer>, Integer>() {
+				.transformList(sources, new FunctionAdapter<Map<String, Integer>, Integer>() {
 					@Override
 					public Integer apply(Map<String, Integer> source) {
 						return source.get("id");
@@ -32,6 +31,26 @@ public class CollectionUtilTest {
 
 		for (int i = 0; i < size; i++) {
 			Assert.assertTrue(idList.get(i) == i);
+		}
+	}
+
+	@Test
+	public void testTransformMap() {
+		final int size = 10;
+		final List<Integer> sources = new ArrayList<>();
+		for (int i = 0; i < size; i++) {
+			sources.add(i);
+		}
+		final Map<Integer, String> idMap = CollectionUtil
+				.transformMap(sources, new MappableFunction<Integer, Integer, String>() {
+					@Override
+					public Map.Entry<Integer, String> apply(Integer source) {
+						return MapUtil.newMapEntry(source, source + "name");
+					}
+				});
+
+		for (int i = 0; i < size; i++) {
+			Assert.assertTrue(idMap.get(i).equals(i + "name"));
 		}
 	}
 }

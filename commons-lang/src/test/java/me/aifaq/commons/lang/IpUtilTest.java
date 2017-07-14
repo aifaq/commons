@@ -4,7 +4,7 @@ import me.aifaq.commons.lang.IpUtil;
 import org.junit.Test;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 14:19 2017/5/18
  */
 public class IpUtilTest {

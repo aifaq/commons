@@ -6,7 +6,7 @@ import java.util.Collection;
 /**
  * copy from {@link com.mongodb.util.UniqueList}
  *
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 15:32 2017/6/16
  */
 public class UniqueList<T> extends ArrayList<T> {

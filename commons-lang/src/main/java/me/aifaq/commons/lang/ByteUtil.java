@@ -3,7 +3,7 @@ package me.aifaq.commons.lang;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 14:18 2017/5/18
  */
 public class ByteUtil {

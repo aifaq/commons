@@ -8,7 +8,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 10:10 2017/5/17
  */
 public class StringToCalendarConverter implements Converter<String, Calendar> {

@@ -5,7 +5,7 @@ import java.util.Calendar;
 /**
  * 获取唯一序列号，生成规则：时间戳（精确到毫秒）+ 最后一段的IP地址 + 序列号
  *
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 10:12 2017/5/17
  */
 public class UniqueNoUtil {

@@ -3,7 +3,7 @@ package me.aifaq.commons.lang.bean;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 11:29 2017/6/16
  */
 public class CommonReturnDto<T> {

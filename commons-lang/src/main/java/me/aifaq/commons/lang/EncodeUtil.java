@@ -2,7 +2,7 @@ package me.aifaq.commons.lang;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]
- * @since 14:00 2017/6/16
+ * @since 16:42 2017/7/7
  */
-public class NumberUtil {
+public class EncodeUtil {
 }

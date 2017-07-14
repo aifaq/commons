@@ -1,9 +1,7 @@
 package me.aifaq.commons.lang;
 
-import me.aifaq.commons.lang.ArrayUtil;
-import me.aifaq.commons.lang.MapUtil;
-import me.aifaq.commons.lang.base.DefaultFunction;
-import me.aifaq.commons.lang.base.OperateFunction;
+import me.aifaq.commons.lang.base.FunctionAdapter;
+import me.aifaq.commons.lang.base.OperableFunction;
 import me.aifaq.commons.lang.base.TypeFunction;
 import org.junit.Assert;
 import org.junit.Test;
@@ -13,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 10:40 2017/6/16
  */
 public class ArrayUtilTest {
@@ -38,7 +36,7 @@ public class ArrayUtilTest {
 			sources[i] = MapUtil.newHashMap("id", i);
 		}
 		final List<Integer> idList = ArrayUtil
-				.transformList(sources, new DefaultFunction<Map<String, Integer>, Integer>() {
+				.transformList(sources, new FunctionAdapter<Map<String, Integer>, Integer>() {
 					@Override
 					public Integer apply(Map<String, Integer> source) {
 						return source.get("id");
@@ -78,7 +76,7 @@ public class ArrayUtilTest {
 			sources[i] = MapUtil.newHashMap("id", i);
 		}
 
-		final BigDecimal sum = ArrayUtil.sum(sources, new OperateFunction<Map<String, Integer>>() {
+		final BigDecimal sum = ArrayUtil.sum(sources, new OperableFunction<Map<String, Integer>>() {
 			@Override
 			public BigDecimal apply(Map<String, Integer> source) {
 				return new BigDecimal(source.get("id"));

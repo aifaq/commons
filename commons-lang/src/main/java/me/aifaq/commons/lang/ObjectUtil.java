@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Arrays;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 14:01 2017/6/16
  */
 public class ObjectUtil {

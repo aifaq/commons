@@ -10,7 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 19:14 2017/6/13
  */
 public class ImageVerifyCodeUtilTest {

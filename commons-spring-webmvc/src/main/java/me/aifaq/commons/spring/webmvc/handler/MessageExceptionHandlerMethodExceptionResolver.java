@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 19:18 2017/6/19
  */
 public class MessageExceptionHandlerMethodExceptionResolver

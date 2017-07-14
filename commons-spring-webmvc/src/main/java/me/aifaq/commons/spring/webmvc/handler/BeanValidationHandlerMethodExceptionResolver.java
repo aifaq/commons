@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 19:51 2017/6/19
  */
 public class BeanValidationHandlerMethodExceptionResolver

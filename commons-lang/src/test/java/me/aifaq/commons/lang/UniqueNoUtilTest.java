@@ -4,7 +4,7 @@ import me.aifaq.commons.lang.UniqueNoUtil;
 import org.junit.Test;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 14:26 2017/5/18
  */
 public class UniqueNoUtilTest {

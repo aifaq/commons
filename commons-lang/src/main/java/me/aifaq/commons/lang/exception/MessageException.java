@@ -1,7 +1,7 @@
 package me.aifaq.commons.lang.exception;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 11:18 2017/6/16
  */
 public class MessageException extends RuntimeException {

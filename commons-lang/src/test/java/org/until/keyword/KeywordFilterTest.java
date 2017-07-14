@@ -13,7 +13,7 @@ import org.until.keyword.dictionary.DartsDictionaryBuilder;
  *
  * </pre>
  *
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 8:01:05 PM Jun 24, 2016
  */
 @Ignore

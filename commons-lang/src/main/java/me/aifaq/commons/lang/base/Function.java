@@ -1,7 +1,7 @@
 package me.aifaq.commons.lang.base;
 
 /**
- * @author Wang Wei
+ * @author Wang Wei [5waynewang@gmail.com]
  * @since 19:40 2017/6/12
  */
 public interface Function<S, T> {
