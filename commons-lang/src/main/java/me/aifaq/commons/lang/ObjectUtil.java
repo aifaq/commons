@@ -69,4 +69,54 @@ public class ObjectUtil {
 		}
 		return StringUtils.equalsIgnoreCase(o1.toString(), o2.toString());
 	}
+
+	/**
+	 * 判断指定对象中是否有null值
+	 *
+	 * <pre>
+	 * ObjectUtil.isAnyNull(null)             = true
+	 * ObjectUtil.isAnyNull(null, "foo")      = true
+	 * ObjectUtil.isAnyNull(null, null)       = true
+	 * ObjectUtil.isAnyNull("", "bar")        = false
+	 * ObjectUtil.isAnyNull("bob", "")        = false
+	 * ObjectUtil.isAnyNull("  bob  ", null)  = true
+	 * ObjectUtil.isAnyNull(" ", "bar")       = false
+	 * ObjectUtil.isAnyNull("foo", "bar")     = false
+	 * </pre>
+	 *
+	 * @param objects
+	 * @return 有null值则返回true
+	 */
+	public static boolean isAnyNull(Object ... objects) {
+		if (objects == null) {
+			return true;
+		}
+		for (Object object : objects) {
+			if (object == null) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
+	 * 判断指定对象是否都不为null
+	 *
+	 * <pre>
+	 * ObjectUtil.isNoneNull(null)             = false
+	 * ObjectUtil.isNoneNull(null, "foo")      = false
+	 * ObjectUtil.isNoneNull(null, null)       = false
+	 * ObjectUtil.isNoneNull("", "bar")        = true
+	 * ObjectUtil.isNoneNull("bob", "")        = true
+	 * ObjectUtil.isNoneNull("  bob  ", null)  = true
+	 * ObjectUtil.isNoneNull(" ", "bar")       = true
+	 * ObjectUtil.isNoneNull("foo", "bar")     = true
+	 * </pre>
+	 *
+	 * @param objects
+	 * @return
+	 */
+	public static boolean isNoneNull(Object ... objects) {
+		return !isAnyNull(objects);
+	}
 }
