@@ -2,6 +2,7 @@ package me.aifaq.commons.lang;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
+import org.apache.commons.collections.MapUtils;
 
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -151,5 +152,13 @@ public class MapUtil {
 			result = 31 * result + (value != null ? value.hashCode() : 0);
 			return result;
 		}
+	}
+
+	public static <K, V> V get(Map<K, V> map, K key) {
+		return (V) MapUtils.getObject(map, key);
+	}
+
+	public static <K, V> V get(Map<K, V> map, K key, V defaultValue) {
+		return (V) MapUtils.getObject(map, key, defaultValue);
 	}
 }
