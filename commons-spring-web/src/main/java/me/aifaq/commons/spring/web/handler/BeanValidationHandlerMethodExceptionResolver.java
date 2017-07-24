@@ -1,4 +1,4 @@
-package me.aifaq.commons.spring.webmvc.handler;
+package me.aifaq.commons.spring.web.handler;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.validation.BindException;

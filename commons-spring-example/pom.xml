@@ -26,7 +26,7 @@
     <dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>commons-spring-webmvc</artifactId>
+			<artifactId>commons-spring-web</artifactId>
 		</dependency>
 		<!-- spring -->
 		<dependency>

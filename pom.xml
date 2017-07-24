@@ -42,7 +42,7 @@
 	<modules>
 		<module>commons-lang</module>
 		<module>commons-spring-core</module>
-		<module>commons-spring-webmvc</module>
+		<module>commons-spring-web</module>
 		<module>commons-spring-example</module>
 	</modules>
 	
@@ -173,7 +173,7 @@
 			</dependency>
 			<dependency>
 				<groupId>${project.groupId}</groupId>
-				<artifactId>commons-spring-webmvc</artifactId>
+				<artifactId>commons-spring-web</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<!-- apache commons -->
@@ -188,9 +188,9 @@
 				<version>3.2.2</version>
 			</dependency>
 			<dependency>
-				<groupId>org.apache.commons</groupId>
+				<groupId>commons-io</groupId>
 				<artifactId>commons-io</artifactId>
-				<version>1.3.2</version>
+				<version>2.5</version>
 			</dependency>
 			<!-- guava -->
 			<dependency>
@@ -244,6 +244,11 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-webmvc</artifactId>
 				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-commons</artifactId>
+				<version>1.13.4.RELEASE</version>
 			</dependency>
 			<!-- aspectj -->
 			<dependency>

@@ -1,7 +1,7 @@
 package me.aifaq.commons.spring.example;
 
-import me.aifaq.commons.spring.webmvc.handler.BeanValidationHandlerMethodExceptionResolver;
-import me.aifaq.commons.spring.webmvc.handler.MessageExceptionHandlerMethodExceptionResolver;
+import me.aifaq.commons.spring.web.handler.BeanValidationHandlerMethodExceptionResolver;
+import me.aifaq.commons.spring.web.handler.MessageExceptionHandlerMethodExceptionResolver;
 import org.hibernate.validator.HibernateValidatorConfiguration;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;

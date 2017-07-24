@@ -1,4 +1,4 @@
-package me.aifaq.commons.spring.webmvc.handler;
+package me.aifaq.commons.spring.web.handler;
 
 import me.aifaq.commons.lang.exception.MessageException;
 import org.springframework.context.MessageSource;
