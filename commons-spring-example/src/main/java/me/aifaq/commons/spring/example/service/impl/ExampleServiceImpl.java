@@ -4,7 +4,13 @@ import me.aifaq.commons.lang.exception.MessageException;
 import me.aifaq.commons.spring.example.advice.TransactionAdvice;
 import me.aifaq.commons.spring.example.entity.Example;
 import me.aifaq.commons.spring.example.service.ExampleService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]
@@ -53,5 +59,19 @@ public class ExampleServiceImpl implements ExampleService {
 		else {
 			return update(example);
 		}
+	}
+
+	@Override
+	public Page<Example> list(Pageable pageable) {
+		System.out.println(this.getClass().getSimpleName() + ".list()");
+
+		final List<Example> content = new ArrayList<>();
+		for (long i = 0; i < 10; i++) {
+			final Example example = new Example();
+			example.setId(i);
+			example.setName("name" + i);
+			content.add(example);
+		}
+		return new PageImpl<>(content);
 	}
 }

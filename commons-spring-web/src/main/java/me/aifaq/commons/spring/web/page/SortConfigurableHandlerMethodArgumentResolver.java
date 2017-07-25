@@ -1,5 +1,6 @@
 package me.aifaq.commons.spring.web.page;
 
+import me.aifaq.commons.lang.ArrayUtil;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.core.MethodParameter;
 import org.springframework.data.domain.Sort;
@@ -19,7 +20,7 @@ public class SortConfigurableHandlerMethodArgumentResolver extends SortHandlerMe
 	public Sort resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
 			NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
 		final Sort sort = super.resolveArgument(parameter, mavContainer, webRequest, binderFactory);
-		if (sort == null) {
+		if (sort == null || !sort.iterator().hasNext()) {
 			return sort;
 		}
 
@@ -28,12 +29,16 @@ public class SortConfigurableHandlerMethodArgumentResolver extends SortHandlerMe
 			return sort;
 		}
 		final String[] allowSorts = sortConfiguration.allowSorts();
-		if (ArrayUtils.isEmpty(allowSorts)) {
-			return sort;
-		}
+		final boolean allowAll = sortConfiguration.emptyAllowAll() && ArrayUtils.isEmpty(allowSorts);
+
+		final String[] denySorts = sortConfiguration.denySorts();
 
 		for (Sort.Order order : sort) {
-			if (!ArrayUtils.contains(allowSorts, order.getProperty())) {
+			if (ArrayUtil.containsIgnoreCase(denySorts, order.getProperty())) {
+				throw new IllegalArgumentException(String.format("不支持的排序：%s", order));
+			}
+
+			if (!allowAll && !ArrayUtil.containsIgnoreCase(allowSorts, order.getProperty())) {
 				throw new IllegalArgumentException(String.format("不支持的排序：%s", order));
 			}
 		}

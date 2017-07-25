@@ -4,6 +4,8 @@ import me.aifaq.commons.lang.validation.group.Create;
 import me.aifaq.commons.lang.validation.group.Retrieve;
 import me.aifaq.commons.lang.validation.group.Update;
 import me.aifaq.commons.spring.example.entity.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;
 
 import javax.validation.Valid;
@@ -32,4 +34,6 @@ public interface ExampleService {
 			Update.class }) Example example);
 
 	Integer save(Example example);
+
+	Page<Example> list(Pageable pageable);
 }

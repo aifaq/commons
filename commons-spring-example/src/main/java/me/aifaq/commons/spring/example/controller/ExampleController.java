@@ -4,7 +4,9 @@ import me.aifaq.commons.lang.bean.CommonReturnDto;
 import me.aifaq.commons.lang.validation.group.Save;
 import me.aifaq.commons.spring.example.entity.Example;
 import me.aifaq.commons.spring.example.service.ExampleService;
+import me.aifaq.commons.spring.web.page.SortConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,5 +44,11 @@ public class ExampleController {
 	@ResponseBody
 	public CommonReturnDto<?> insert(Example example) {
 		return new CommonReturnDto<>(exampleService.insert(example));
+	}
+
+	@RequestMapping("/list")
+	@ResponseBody
+	public CommonReturnDto<?> list(@SortConfiguration(allowSorts = {"create_at", "modify_at"}) Pageable pageable) {
+		return new CommonReturnDto<>(exampleService.list(pageable));
 	}
 }

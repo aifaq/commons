@@ -11,4 +11,11 @@ import java.lang.annotation.*;
 @Target(ElementType.PARAMETER)
 public @interface SortConfiguration {
 	String[] allowSorts() default {};
+
+	/**
+	 * {@link #allowSorts()} 为空是否允许所有
+	 */
+	boolean emptyAllowAll() default true;
+
+	String[] denySorts() default {};
 }

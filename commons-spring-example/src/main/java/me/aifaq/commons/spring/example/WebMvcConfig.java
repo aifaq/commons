@@ -2,6 +2,7 @@ package me.aifaq.commons.spring.example;
 
 import me.aifaq.commons.spring.web.handler.BeanValidationHandlerMethodExceptionResolver;
 import me.aifaq.commons.spring.web.handler.MessageExceptionHandlerMethodExceptionResolver;
+import me.aifaq.commons.spring.web.page.SortConfigurableHandlerMethodArgumentResolver;
 import org.hibernate.validator.HibernateValidatorConfiguration;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.data.web.PageableHandlerMethodArgumentResolver;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
@@ -108,6 +110,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
 
 	@Override
 	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+		argumentResolvers.add(new PageableHandlerMethodArgumentResolver(new SortConfigurableHandlerMethodArgumentResolver()));
 	}
 
 	@Override
