@@ -272,4 +272,33 @@ public class ArrayUtil {
 		}
 		return result.toString();
 	}
+
+	/**
+	 * 字符串数组中是否包含目标字符串，不区分大小写
+	 *
+	 * <pre>
+	 * ArrayUtil.containsIgnoreCase(null, null)            = false
+	 * ArrayUtil.containsIgnoreCase(null, "abc")           = false
+	 * ArrayUtil.containsIgnoreCase([null, "123"], null)   = true
+	 * ArrayUtil.containsIgnoreCase([null, "123"], "abc")  = false
+	 * ArrayUtil.containsIgnoreCase(["abc", "123"], null)  = false
+	 * ArrayUtil.containsIgnoreCase(["abc", "123"], "abc") = true
+	 * ArrayUtil.containsIgnoreCase(["abc", "123"], "ABC") = true
+	 * </pre>
+	 *
+	 * @param strArr
+	 * @param strToFind
+	 * @return
+	 */
+	public static boolean containsIgnoreCase(String[] strArr, String strToFind) {
+		if (ArrayUtils.isEmpty(strArr)) {
+			return false;
+		}
+		for (String str : strArr) {
+			if (StringUtils.equalsIgnoreCase(str, strToFind)) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
