@@ -1,9 +1,11 @@
 package me.aifaq.commons.lang;
 
 import com.google.common.base.Preconditions;
+import me.aifaq.commons.lang.base.OperableFunction;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.Collection;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]
@@ -58,5 +60,29 @@ public class NumberUtil {
 
 	public static Float toFloatObject(Number number) {
 		return number == null ? null : number.floatValue();
+	}
+
+	/**
+	 * 求和，跳过null值
+	 */
+	public static BigDecimal sum(BigDecimal ... sources) {
+		return ArrayUtil.sum(sources, new OperableFunction<BigDecimal>() {
+			@Override
+			public BigDecimal apply(BigDecimal source) {
+				return source;
+			}
+		});
+	}
+
+	/**
+	 * 求和，跳过null值
+	 */
+	public static BigDecimal sum(Collection<BigDecimal> sourceList) {
+		return CollectionUtil.sum(sourceList, new OperableFunction<BigDecimal>() {
+			@Override
+			public BigDecimal apply(BigDecimal source) {
+				return source;
+			}
+		});
 	}
 }
