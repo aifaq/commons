@@ -35,4 +35,12 @@ public class NumberUtil {
 
 		return new BigDecimal(target).setScale(-digits, RoundingMode.DOWN).longValue();
 	}
+
+	public static Long toLongObject(Number number) {
+		return number == null ? null : number.longValue();
+	}
+
+	public static Integer toInteger(Number number) {
+		return number == null ? null : number.intValue();
+	}
 }
