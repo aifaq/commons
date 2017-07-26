@@ -43,4 +43,8 @@ public class NumberUtil {
 	public static Integer toInteger(Number number) {
 		return number == null ? null : number.intValue();
 	}
+
+	public static Byte toByteObject(Number number) {
+		return number == null ? null : number.byteValue();
+	}
 }
