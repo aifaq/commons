@@ -44,7 +44,19 @@ public class NumberUtil {
 		return number == null ? null : number.intValue();
 	}
 
+	public static Short toShortObject(Number number) {
+		return number == null ? null : number.shortValue();
+	}
+
 	public static Byte toByteObject(Number number) {
 		return number == null ? null : number.byteValue();
+	}
+
+	public static Double toDoubleObject(Number number) {
+		return number == null ? null : number.doubleValue();
+	}
+
+	public static Float toFloatObject(Number number) {
+		return number == null ? null : number.floatValue();
 	}
 }
