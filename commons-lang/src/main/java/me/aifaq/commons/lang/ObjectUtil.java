@@ -3,6 +3,7 @@ package me.aifaq.commons.lang;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]
@@ -118,5 +119,28 @@ public class ObjectUtil {
 	 */
 	public static boolean isNoneNull(Object ... objects) {
 		return !isAnyNull(objects);
+	}
+
+	/**
+	 * 判断两个对象是否相等，如果源对象为null则直接返回true
+	 *
+	 * <pre>
+	 * ObjectUtil.eqOrNull(null, "123")		= true
+	 * ObjectUtil.eqOrNull(null, null)		= true
+	 * ObjectUtil.eqOrNull("abc", "abc")	= true
+	 * ObjectUtil.eqOrNull("abc", "123")	= false
+	 * ObjectUtil.eqOrNull("abc", null)		= false
+	 * </pre>
+	 *
+	 * @param source
+	 * @param target
+	 * @return
+	 */
+	public static boolean eqOrNull(Object source, Object target) {
+		if (source == null) {
+			return true;
+		}
+
+		return Objects.equals(source, target);
 	}
 }
