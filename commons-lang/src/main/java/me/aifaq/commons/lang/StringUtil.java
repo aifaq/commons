@@ -156,4 +156,59 @@ public class StringUtil {
 
 		return ArrayUtil.transformList(array, function);
 	}
+
+	/**
+	 * @see #camelCase(String, boolean)
+	 */
+	public static String camelCase(String inputString) {
+		return camelCase(inputString, false);
+	}
+
+	/**
+	 * Gets the camel case string.
+	 *
+	 * @param inputString
+	 *            the input string
+	 * @param firstCharacterUppercase
+	 *            the first character uppercase
+	 * @return the camel case string
+	 */
+	public static String camelCase(String inputString, boolean firstCharacterUppercase) {
+		StringBuilder sb = new StringBuilder();
+
+		boolean nextUpperCase = false;
+		for (int i = 0; i < inputString.length(); i++) {
+			char c = inputString.charAt(i);
+
+			switch (c) {
+			case '_':
+			case '-':
+			case '@':
+			case '$':
+			case '#':
+			case ' ':
+			case '/':
+			case '&':
+				if (sb.length() > 0) {
+					nextUpperCase = true;
+				}
+				break;
+
+			default:
+				if (nextUpperCase) {
+					sb.append(Character.toUpperCase(c));
+					nextUpperCase = false;
+				} else {
+					sb.append(Character.toLowerCase(c));
+				}
+				break;
+			}
+		}
+
+		if (firstCharacterUppercase) {
+			sb.setCharAt(0, Character.toUpperCase(sb.charAt(0)));
+		}
+
+		return sb.toString();
+	}
 }
