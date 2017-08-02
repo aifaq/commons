@@ -37,10 +37,10 @@ public class PastExtValidatorForCalendar implements ConstraintValidator<PastExt,
         }
 
         if (StringUtils.isBlank(constraintAnnotation.value())) {
-            return value.getTimeInMillis() > System.currentTimeMillis();
+            return value.getTimeInMillis() <= System.currentTimeMillis();
         } else {
             try {
-                return value.getTimeInMillis() > DateUtil.parseDate(constraintAnnotation.value()).getTime();
+                return value.getTimeInMillis() <= DateUtil.parseDate(constraintAnnotation.value()).getTime();
             } catch (ParseException e) {
                 throw new ConstraintDeclarationException(String.format("the declared value[%s] can not be parsed to java.util.Date", constraintAnnotation.value()), e);
             }

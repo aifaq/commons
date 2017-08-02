@@ -37,10 +37,10 @@ public class FutureExtValidatorForDate implements ConstraintValidator<FutureExt,
         }
 
         if (StringUtils.isBlank(constraintAnnotation.value())) {
-            return value.getTime() > System.currentTimeMillis();
+            return value.getTime() >= System.currentTimeMillis();
         } else {
             try {
-                return value.getTime() > DateUtil.parseDate(constraintAnnotation.value()).getTime();
+                return value.getTime() >= DateUtil.parseDate(constraintAnnotation.value()).getTime();
             } catch (ParseException e) {
                 throw new ConstraintDeclarationException(String.format("the declared value[%s] can not be parsed to java.util.Date", constraintAnnotation.value()), e);
             }

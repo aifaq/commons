@@ -5,6 +5,7 @@ package me.aifaq.commons.lang.validation.constraints;
 
 import me.aifaq.commons.lang.validation.constraintvalidators.FutureExtValidatorForCalendar;
 import me.aifaq.commons.lang.validation.constraintvalidators.FutureExtValidatorForDate;
+import me.aifaq.commons.lang.validation.constraintvalidators.FutureExtValidatorForLong;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -33,7 +34,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = { FutureExtValidatorForDate.class, FutureExtValidatorForCalendar.class })
+@Constraint(validatedBy = { FutureExtValidatorForDate.class, FutureExtValidatorForCalendar.class, FutureExtValidatorForLong.class })
 public @interface FutureExt {
 
     String value() default "";

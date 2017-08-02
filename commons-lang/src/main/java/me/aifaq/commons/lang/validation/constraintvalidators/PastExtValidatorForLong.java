@@ -36,10 +36,10 @@ public class PastExtValidatorForLong implements ConstraintValidator<PastExt, Lon
         }
 
         if (StringUtils.isBlank(constraintAnnotation.value())) {
-            return value > System.currentTimeMillis();
+            return value <= System.currentTimeMillis();
         } else {
             try {
-                return value > DateUtil.parseDate(constraintAnnotation.value()).getTime();
+                return value <= DateUtil.parseDate(constraintAnnotation.value()).getTime();
             } catch (ParseException e) {
                 throw new ConstraintDeclarationException(String.format("the declared value[%s] can not be parsed to java.util.Date", constraintAnnotation.value()), e);
             }
