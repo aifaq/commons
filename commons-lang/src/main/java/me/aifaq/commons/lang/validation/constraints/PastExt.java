@@ -39,6 +39,11 @@ public @interface PastExt {
 
     String value() default "";
 
+    /**
+     * 是否包含目标值
+     */
+    boolean inclusive() default true;
+
     String message() default "{me.aifaq.validation.constraints.PastExt.message}";
 
     Class<?>[] groups() default {};

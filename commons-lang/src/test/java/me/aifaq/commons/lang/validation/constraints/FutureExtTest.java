@@ -105,6 +105,25 @@ public class FutureExtTest extends AbstractValidationTest {
 		Assert.assertTrue(set.size() == 0);
 	}
 
+	@Test
+	public void testLong2() throws ParseException {
+		Long invalidValue;
+		Set<ConstraintViolation<FutureExtTest.TestBean>> set;
+		FutureExtTest.TestBean testBean;
+
+		testBean = new FutureExtTest.TestBean();
+		testBean.setCustomLong2(invalidValue = System.currentTimeMillis() - 5000);
+
+		set = this.validator.validate(testBean);
+		Assert.assertTrue(set.size() == 1);
+		Assert.assertEquals(set.iterator().next().getInvalidValue(), invalidValue);
+
+		testBean.setCustomLong2(System.currentTimeMillis() + 5000);
+		testBean.setCustomLong3(invalidValue = System.currentTimeMillis() - 5000);
+		set = this.validator.validate(testBean);
+		Assert.assertTrue(set.size() == 0);
+	}
+
 	static class TestBean {
 		@FutureExt
 		private Long defaultLong;
@@ -118,6 +137,27 @@ public class FutureExtTest extends AbstractValidationTest {
 		private Calendar defaultCalendar;
 		@FutureExt(value = "20170801")
 		private Calendar customCalendar;
+
+		@FutureExt
+		private Long customLong2;
+		@FutureExt(includeAllDayIfFutureNow = true)
+		private Long customLong3;
+
+		public Long getCustomLong3() {
+			return customLong3;
+		}
+
+		public void setCustomLong3(Long customLong3) {
+			this.customLong3 = customLong3;
+		}
+
+		public Long getCustomLong2() {
+			return customLong2;
+		}
+
+		public void setCustomLong2(Long customLong2) {
+			this.customLong2 = customLong2;
+		}
 
 		public Long getDefaultLong() {
 			return defaultLong;

@@ -12,6 +12,7 @@ import javax.validation.Payload;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
+import java.util.Calendar;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
@@ -38,6 +39,20 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 public @interface FutureExt {
 
     String value() default "";
+
+    /**
+     * 当以当前日期衡量Future，当天的时间是否都有效
+     * <pre>
+     *     eg: 当前 2017-08-14 15:24:35
+     *     那么是否只要是 2017-08-14 当天的时间，都会有效
+     * </pre>
+     */
+    boolean includeAllDayIfFutureNow() default false;
+
+    /**
+     * 是否包含目标值
+     */
+    boolean inclusive() default true;
 
     String message() default "{me.aifaq.validation.constraints.FutureExt.message}";
 
