@@ -1,10 +1,10 @@
 package me.aifaq.commons.lang;
 
 import com.google.common.base.Charsets;
-import org.apache.commons.io.FileUtils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.file.Path;
 import java.util.Properties;
@@ -17,10 +17,14 @@ public class PropertiesUtil {
 
 	public static Properties loadProperties(String file) throws IOException {
 		try (FileInputStream input = new FileInputStream(file)) {
-			final Properties properties = new Properties();
-			properties.load(new InputStreamReader(input, Charsets.UTF_8));
-			return properties;
+			return loadProperties(input);
 		}
+	}
+
+	public static Properties loadProperties(InputStream input) throws IOException {
+		final Properties properties = new Properties();
+		properties.load(new InputStreamReader(input, Charsets.UTF_8));
+		return properties;
 	}
 
 	/**
