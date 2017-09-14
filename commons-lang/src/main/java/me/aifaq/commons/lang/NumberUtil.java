@@ -42,24 +42,84 @@ public class NumberUtil {
 		return number == null ? null : number.longValue();
 	}
 
+	public static Long toLongObject(Object object) {
+		if (object == null) {
+			return null;
+		} else if (object instanceof Number) {
+			return toLongObject((Number) object);
+		} else {
+			return Long.valueOf(object.toString());
+		}
+	}
+
 	public static Integer toInteger(Number number) {
 		return number == null ? null : number.intValue();
+	}
+
+	public static Integer toInteger(Object object) {
+		if (object == null) {
+			return null;
+		} else if (object instanceof Number) {
+			return toInteger((Number) object);
+		} else {
+			return Integer.valueOf(object.toString());
+		}
 	}
 
 	public static Short toShortObject(Number number) {
 		return number == null ? null : number.shortValue();
 	}
 
+	public static Short toShortObject(Object object) {
+		if (object == null) {
+			return null;
+		} else if (object instanceof Number) {
+			return toShortObject((Number) object);
+		} else {
+			return Short.valueOf(object.toString());
+		}
+	}
+
 	public static Byte toByteObject(Number number) {
 		return number == null ? null : number.byteValue();
+	}
+
+	public static Byte toByteObject(Object object) {
+		if (object == null) {
+			return null;
+		} else if (object instanceof Number) {
+			return toByteObject((Number) object);
+		} else {
+			return Byte.valueOf(object.toString());
+		}
 	}
 
 	public static Double toDoubleObject(Number number) {
 		return number == null ? null : number.doubleValue();
 	}
 
+	public static Double toDoubleObject(Object object) {
+		if (object == null) {
+			return null;
+		} else if (object instanceof Number) {
+			return toDoubleObject((Number) object);
+		} else {
+			return Double.valueOf(object.toString());
+		}
+	}
+
 	public static Float toFloatObject(Number number) {
 		return number == null ? null : number.floatValue();
+	}
+
+	public static Float toFloatObject(Object object) {
+		if (object == null) {
+			return null;
+		} else if (object instanceof Number) {
+			return toFloatObject((Number) object);
+		} else {
+			return Float.valueOf(object.toString());
+		}
 	}
 
 	/**
