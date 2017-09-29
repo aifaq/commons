@@ -145,4 +145,20 @@ public class NumberUtil {
 			}
 		});
 	}
+
+	public static boolean gtZero(Number target) {
+		return target != null && new BigDecimal(target.toString()).compareTo(BigDecimal.ZERO) > 0;
+	}
+
+	public static boolean geZero(Number target) {
+		return target != null && new BigDecimal(target.toString()).compareTo(BigDecimal.ZERO) >= 0;
+	}
+
+	public static boolean ltZero(Number target) {
+		return target != null && new BigDecimal(target.toString()).compareTo(BigDecimal.ZERO) < 0;
+	}
+
+	public static boolean leZero(Number target) {
+		return target != null && new BigDecimal(target.toString()).compareTo(BigDecimal.ZERO) <= 0;
+	}
 }

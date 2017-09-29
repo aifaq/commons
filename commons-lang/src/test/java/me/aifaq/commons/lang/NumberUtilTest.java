@@ -38,4 +38,26 @@ public class NumberUtilTest {
 		Assert.assertEquals(NumberUtil.truncate(-56789, 5), 0);
 		Assert.assertEquals(NumberUtil.truncate(-56789, 6), 0);
 	}
+
+	@Test
+	public void testGteLte() {
+		Assert.assertTrue(NumberUtil.gtZero(1));
+		Assert.assertTrue(!NumberUtil.gtZero(0));
+		Assert.assertTrue(!NumberUtil.gtZero(-1));
+
+
+		Assert.assertTrue(NumberUtil.geZero(1));
+		Assert.assertTrue(NumberUtil.geZero(0));
+		Assert.assertTrue(!NumberUtil.geZero(-1));
+
+
+		Assert.assertTrue(!NumberUtil.ltZero(1));
+		Assert.assertTrue(!NumberUtil.ltZero(0));
+		Assert.assertTrue(NumberUtil.ltZero(-1));
+
+
+		Assert.assertTrue(!NumberUtil.leZero(1));
+		Assert.assertTrue(NumberUtil.leZero(0));
+		Assert.assertTrue(NumberUtil.leZero(-1));
+	}
 }
