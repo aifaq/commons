@@ -165,6 +165,14 @@ public class ArrayUtil {
 	}
 
 	/**
+	 * @see #sum(OperableFunction, Object[])
+	 */
+	@Deprecated
+	public static <S> BigDecimal sum(S[] sources, OperableFunction<S> function) {
+		return sum(function, sources);
+	}
+
+	/**
 	 * 求和
 	 *
 	 * @param sources  源数据集合
@@ -172,7 +180,7 @@ public class ArrayUtil {
 	 * @param <S>      源数据类型
 	 * @return
 	 */
-	public static <S> BigDecimal sum(S[] sources, OperableFunction<S> function) {
+	public static <S> BigDecimal sum(OperableFunction<S> function, S ... sources) {
 		Preconditions.checkNotNull(function);
 
 		if (ArrayUtils.isEmpty(sources)) {
@@ -193,6 +201,8 @@ public class ArrayUtil {
 	}
 
 	/**
+	 * 求和，会跳过null值
+	 *
 	 * @see #sum(Object[], OperableFunction)
 	 */
 	public static BigDecimal sum(BigDecimal ... sources) {

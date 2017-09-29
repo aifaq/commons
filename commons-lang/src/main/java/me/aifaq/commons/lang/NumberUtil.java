@@ -123,7 +123,7 @@ public class NumberUtil {
 	}
 
 	/**
-	 * 求和，跳过null值
+	 * 求和，会跳过null值
 	 */
 	public static BigDecimal sum(BigDecimal ... sources) {
 		return ArrayUtil.sum(sources, new OperableFunction<BigDecimal>() {
@@ -135,7 +135,7 @@ public class NumberUtil {
 	}
 
 	/**
-	 * 求和，跳过null值
+	 * 求和，会跳过null值
 	 */
 	public static BigDecimal sum(Collection<BigDecimal> sourceList) {
 		return CollectionUtil.sum(sourceList, new OperableFunction<BigDecimal>() {

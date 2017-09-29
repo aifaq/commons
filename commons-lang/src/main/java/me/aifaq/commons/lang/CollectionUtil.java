@@ -144,6 +144,19 @@ public class CollectionUtil {
 	}
 
 	/**
+	 * @see #sum(Collection, OperableFunction)
+	 */
+	public static BigDecimal sum(Collection<BigDecimal> sources) {
+		return sum(sources, new OperableFunction<BigDecimal>() {
+			@Override
+			public BigDecimal apply(BigDecimal source) {
+				return source;
+			}
+		});
+	}
+
+
+	/**
 	 * 是否存在null值
 	 *
 	 * @param collection
