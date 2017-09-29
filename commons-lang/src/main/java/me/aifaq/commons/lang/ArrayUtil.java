@@ -193,6 +193,18 @@ public class ArrayUtil {
 	}
 
 	/**
+	 * @see #sum(Object[], OperableFunction)
+	 */
+	public static BigDecimal sum(BigDecimal ... sources) {
+		return sum(sources, new OperableFunction<BigDecimal>() {
+			@Override
+			public BigDecimal apply(BigDecimal source) {
+				return source;
+			}
+		});
+	}
+
+	/**
 	 * 是否存在null值
 	 *
 	 * @param array
