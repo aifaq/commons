@@ -6,7 +6,7 @@
     <parent>
         <groupId>me.aifaq</groupId>
         <artifactId>commons</artifactId>
-        <version>0.5</version>
+        <version>0.6-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>commons-spring-example</artifactId>
