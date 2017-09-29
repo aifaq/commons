@@ -100,6 +100,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+				<version>2.4</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -121,6 +122,9 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
+						<configuration>
+							<additionalparam>-Xdoclint:none</additionalparam>
+						</configuration>
 					</execution>
 				</executions>
 				<configuration>
@@ -352,6 +356,12 @@
 				<artifactId>tomcat-jasper</artifactId>
 				<version>${tomcat.version}</version>
 				<scope>test</scope>
+			</dependency>
+			<!-- httpcomponents -->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcore</artifactId>
+				<version>4.4.7</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
