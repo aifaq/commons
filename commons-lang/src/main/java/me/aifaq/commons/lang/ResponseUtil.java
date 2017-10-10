@@ -1,7 +1,7 @@
 package me.aifaq.commons.lang;
 
 import com.google.common.net.HttpHeaders;
-import org.apache.http.entity.ContentType;
+import com.google.common.net.MediaType;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -13,7 +13,7 @@ import java.io.PrintWriter;
  */
 public class ResponseUtil {
     public static void writeJson(HttpServletResponse response, String str) throws IOException {
-        response.setHeader(HttpHeaders.CONTENT_TYPE, ContentType.APPLICATION_JSON.toString());
+        response.setHeader(HttpHeaders.CONTENT_TYPE, MediaType.JSON_UTF_8.toString());
 
         try (PrintWriter writer = response.getWriter()) {
             writer.write(str);

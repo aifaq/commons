@@ -357,12 +357,6 @@
 				<version>${tomcat.version}</version>
 				<scope>test</scope>
 			</dependency>
-			<!-- httpcomponents -->
-			<dependency>
-				<groupId>org.apache.httpcomponents</groupId>
-				<artifactId>httpcore</artifactId>
-				<version>4.4.7</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
