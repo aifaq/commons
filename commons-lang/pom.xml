@@ -59,12 +59,6 @@
             <artifactId>javax.el-api</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- httpcomponents -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore</artifactId>
-            <scope>provided</scope>
-        </dependency>
         <!-- jackson -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

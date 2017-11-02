@@ -9,8 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.validation.Valid;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]
@@ -31,6 +34,12 @@ public class ExampleController {
 	@RequestMapping("/save")
 	@ResponseBody
 	public CommonReturnDto<?> save(@Validated({ Save.class }) Example example) {
+		return new CommonReturnDto<>(exampleService.save(example));
+	}
+
+	@RequestMapping("/save2")
+	@ResponseBody
+	public CommonReturnDto<?> save2(@Validated({ Save.class }) @RequestBody Example example) {
 		return new CommonReturnDto<>(exampleService.save(example));
 	}
 

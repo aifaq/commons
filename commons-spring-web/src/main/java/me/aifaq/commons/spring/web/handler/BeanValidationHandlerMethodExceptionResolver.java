@@ -2,6 +2,10 @@ package me.aifaq.commons.spring.web.handler;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver;
@@ -21,35 +25,64 @@ import java.util.Set;
  * @since 19:51 2017/6/19
  */
 public class BeanValidationHandlerMethodExceptionResolver
-		extends AbstractHandlerMethodExceptionResolver {
-	private static final String BEAN_VALIDATION = "BEAN_VALIDATION";
+        extends AbstractHandlerMethodExceptionResolver {
+    private static final String BEAN_VALIDATION = "BEAN_VALIDATION";
 
-	@Override
-	protected ModelAndView doResolveHandlerMethodException(HttpServletRequest request,
-			HttpServletResponse response, HandlerMethod handlerMethod, Exception ex) {
-		final String message;
-		if (ex instanceof BindException) {
-			final BindException be = (BindException) ex;
+    private String code = BEAN_VALIDATION;
 
-			message = be.getFieldError().getDefaultMessage();
-		} else if (ex instanceof ConstraintViolationException) {
-			final ConstraintViolationException cve = (ConstraintViolationException) ex;
+    static String getErrorMessage(BindingResult bindingResult) {
+        if (!bindingResult.hasErrors()) {
+            return null;
+        }
+        final FieldError fieldError = bindingResult.getFieldError();
+        if (fieldError == null) {
+            final ObjectError objectError = bindingResult.getGlobalError();
+            if (objectError == null) {
+                return null;
+            }
+            return objectError.getDefaultMessage();
+        } else {
+            return fieldError.getDefaultMessage();
+        }
+    }
 
-			final Set<ConstraintViolation<?>> constraintViolationSet = cve.getConstraintViolations();
-			if (CollectionUtils.isEmpty(constraintViolationSet)) {
-				message = cve.getMessage();
-			} else {
-				final Iterator<ConstraintViolation<?>> iterator = constraintViolationSet.iterator();
-				final ConstraintViolation<?> constraintViolation = iterator.next();
-				message = constraintViolation.getMessage();
-			}
-		} else {
-			return null;
-		}
-		final Map<String, Object> model = new HashMap<>();
-		model.put("code", BEAN_VALIDATION);
-		model.put("message", message);
+    @Override
+    protected ModelAndView doResolveHandlerMethodException(HttpServletRequest request, HttpServletResponse response, HandlerMethod handlerMethod, Exception ex) {
+        final String message;
+        if (ex instanceof BindException) {
+            final BindException be = (BindException) ex;
 
-		return new ModelAndView(new MappingJackson2JsonView(), model);
-	}
+            message = getErrorMessage(be);
+        } else if (ex instanceof ConstraintViolationException) {
+            final ConstraintViolationException cve = (ConstraintViolationException) ex;
+
+            final Set<ConstraintViolation<?>> constraintViolationSet = cve.getConstraintViolations();
+            if (CollectionUtils.isEmpty(constraintViolationSet)) {
+                message = cve.getMessage();
+            } else {
+                final Iterator<ConstraintViolation<?>> iterator = constraintViolationSet.iterator();
+                final ConstraintViolation<?> constraintViolation = iterator.next();
+                message = constraintViolation.getMessage();
+            }
+        } else if (ex instanceof MethodArgumentNotValidException) {
+            final MethodArgumentNotValidException methodArgumentNotValidException = (MethodArgumentNotValidException) ex;
+
+            message = getErrorMessage(methodArgumentNotValidException.getBindingResult());
+        } else {
+            return null;
+        }
+        final Map<String, Object> model = new HashMap<>();
+        model.put("code", code);
+        model.put("message", message);
+
+        return new ModelAndView(new MappingJackson2JsonView(), model);
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 }
