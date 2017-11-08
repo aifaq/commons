@@ -63,9 +63,21 @@ public class RequestUtil {
      * @return
      */
     public static String getRequestDomain(HttpServletRequest request) {
-        return String.format("%s:%s", request.getServerName(), request.getServerPort());
+        final String scheme = request.getScheme();
+        final int port = request.getServerPort();
+        if ((HTTP_SCHEME.equals(scheme) && port == HTTP_DEFAULT_PORT) || (HTTPS_SCHEME.equals(scheme) && port == HTTPS_DEFAULT_PORT)) {
+            return request.getServerName();
+        }
+
+        return String.format("%s:%s", request.getServerName(), port);
     }
 
+    /**
+     * 获取上下文路径
+     *
+     * @param request
+     * @return
+     */
     public static String getContextPath(HttpServletRequest request) {
         final String contextPath = request.getContextPath();
         if ("/".equals(contextPath)) {
