@@ -33,8 +33,12 @@ public class MessageExceptionHandlerMethodExceptionResolver
 		}
 		final MessageException me = (MessageException) ex;
 
-		final String message = messageSource.getMessage(me.getCode(), me.getArgs(), me.getMessage(),
-				LocaleContextHolder.getLocale());
+		final String message;
+		if (messageSource == null) {
+			message = ex.getMessage();
+		} else {
+			message = messageSource.getMessage(me.getCode(), me.getArgs(), me.getMessage(), LocaleContextHolder.getLocale());
+		}
 
 		final Map<String, Object> model = new HashMap<>();
 		model.put("code", me.getCode());
