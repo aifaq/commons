@@ -1,5 +1,8 @@
 package me.aifaq.commons.lang.base;
 
+import com.google.common.base.Preconditions;
+import org.apache.commons.lang3.ClassUtils;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
@@ -17,7 +20,9 @@ public abstract class TypeFunction<S, T> extends FunctionAdapter<S, T> {
     }
 
     public TypeFunction(Class type) {
-        this.type = type;
+        Preconditions.checkNotNull(type, "type must not be null");
+        
+        this.type = ClassUtils.primitiveToWrapper(type);
     }
 
     public Class<T> getType() {

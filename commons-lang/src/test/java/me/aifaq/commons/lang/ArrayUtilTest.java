@@ -88,6 +88,27 @@ public class ArrayUtilTest {
     }
 
     @Test
+    public void testTransform3() {
+        final int size = 10;
+        final Map<String, Integer>[] sources = new Map[size];
+        for (int i = 0; i < size; i++) {
+            sources[i] = MapUtil.newHashMap("id", i);
+        }
+        final Object[] idArray = ArrayUtil.transform(sources, new TypeFunction<Map<String, Integer>, Object>(int.class) {
+            @Override
+            public Object apply(Map<String, Integer> source) {
+                return source.get("id");
+            }
+        });
+
+        Assert.assertTrue(idArray.getClass().getComponentType() == Integer.class);
+
+        for (int i = 0; i < size; i++) {
+            Assert.assertTrue((Integer) idArray[i] == i);
+        }
+    }
+
+    @Test
     public void testSum() {
         final int size = 10;
         final Map<String, Integer>[] sources = new Map[size];
