@@ -71,7 +71,7 @@ public class ArrayUtil {
         Preconditions.checkNotNull(function);
 
         if (ArrayUtils.isEmpty(sources)) {
-            return newEmptyArray((Class) function.getType());
+            return newEmptyArray(function.getType());
         }
         final List<T> targets = new ArrayList<>(sources.length);
         for (S source : sources) {
@@ -84,7 +84,7 @@ public class ArrayUtil {
             }
             targets.add(target);
         }
-        final T[] array = newArray((Class) function.getType(), targets.size());
+        final T[] array = newArray(function.getType(), targets.size());
         return targets.toArray(array);
     }
 

@@ -15,74 +15,93 @@ import java.util.Map;
  * @since 10:40 2017/6/16
  */
 public class ArrayUtilTest {
-	@Test
-	public void testNewArrayAndFill() {
-		final int length = 10;
-		final Integer val = 1;
-		final Integer[] integerArray = ArrayUtil.newArrayAndFill(Integer.class, length, val);
+    @Test
+    public void testNewArrayAndFill() {
+        final int length = 10;
+        final Integer val = 1;
+        final Integer[] integerArray = ArrayUtil.newArrayAndFill(Integer.class, length, val);
 
-		Assert.assertTrue(length == integerArray.length);
+        Assert.assertTrue(length == integerArray.length);
 
-		for (int i = 0; i < length; i++) {
-			Assert.assertTrue(integerArray[i].equals(val));
-		}
-	}
+        for (int i = 0; i < length; i++) {
+            Assert.assertTrue(integerArray[i].equals(val));
+        }
+    }
 
-	@Test
-	public void testTransformList() {
-		final int size = 10;
-		final Map<String, Integer>[] sources = new Map[size];
-		for (int i = 0; i < size; i++) {
-			sources[i] = MapUtil.newHashMap("id", i);
-		}
-		final List<Integer> idList = ArrayUtil
-				.transformList(sources, new FunctionAdapter<Map<String, Integer>, Integer>() {
-					@Override
-					public Integer apply(Map<String, Integer> source) {
-						return source.get("id");
-					}
-				});
+    @Test
+    public void testTransformList() {
+        final int size = 10;
+        final Map<String, Integer>[] sources = new Map[size];
+        for (int i = 0; i < size; i++) {
+            sources[i] = MapUtil.newHashMap("id", i);
+        }
+        final List<Integer> idList = ArrayUtil.transformList(sources, new FunctionAdapter<Map<String, Integer>, Integer>() {
+            @Override
+            public Integer apply(Map<String, Integer> source) {
+                return source.get("id");
+            }
+        });
 
-		for (int i = 0; i < size; i++) {
-			Assert.assertTrue(idList.get(i) == i);
-		}
-	}
+        for (int i = 0; i < size; i++) {
+            Assert.assertTrue(idList.get(i) == i);
+        }
+    }
 
-	@Test
-	public void testTransform() {
-		final int size = 10;
-		final Map<String, Integer>[] sources = new Map[size];
-		for (int i = 0; i < size; i++) {
-			sources[i] = MapUtil.newHashMap("id", i);
-		}
-		final Integer[] idArray = ArrayUtil
-				.transform(sources, new TypeFunction<Map<String, Integer>, Integer>() {
-					@Override
-					public Integer apply(Map<String, Integer> source) {
-						return source.get("id");
-					}
-				});
+    @Test
+    public void testTransform() {
+        final int size = 10;
+        final Map<String, Integer>[] sources = new Map[size];
+        for (int i = 0; i < size; i++) {
+            sources[i] = MapUtil.newHashMap("id", i);
+        }
+        final Integer[] idArray = ArrayUtil.transform(sources, new TypeFunction<Map<String, Integer>, Integer>() {
+            @Override
+            public Integer apply(Map<String, Integer> source) {
+                return source.get("id");
+            }
+        });
 
-		for (int i = 0; i < size; i++) {
-			Assert.assertTrue(idArray[i] == i);
-		}
-	}
+        for (int i = 0; i < size; i++) {
+            Assert.assertTrue(idArray[i] == i);
+        }
+    }
 
-	@Test
-	public void testSum() {
-		final int size = 10;
-		final Map<String, Integer>[] sources = new Map[size];
-		for (int i = 0; i < size; i++) {
-			sources[i] = MapUtil.newHashMap("id", i);
-		}
+    @Test
+    public void testTransform2() {
+        final int size = 10;
+        final Map<String, Integer>[] sources = new Map[size];
+        for (int i = 0; i < size; i++) {
+            sources[i] = MapUtil.newHashMap("id", i);
+        }
+        final Object[] idArray = ArrayUtil.transform(sources, new TypeFunction<Map<String, Integer>, Object>(Integer.class) {
+            @Override
+            public Object apply(Map<String, Integer> source) {
+                return source.get("id");
+            }
+        });
 
-		final BigDecimal sum = ArrayUtil.sum(sources, new OperableFunction<Map<String, Integer>>() {
-			@Override
-			public BigDecimal apply(Map<String, Integer> source) {
-				return new BigDecimal(source.get("id"));
-			}
-		});
+        Assert.assertTrue(idArray.getClass().getComponentType() == Integer.class);
 
-		Assert.assertTrue(sum.equals(BigDecimal.valueOf(45)));
-	}
+        for (int i = 0; i < size; i++) {
+            Assert.assertTrue((Integer) idArray[i] == i);
+        }
+    }
+
+    @Test
+    public void testSum() {
+        final int size = 10;
+        final Map<String, Integer>[] sources = new Map[size];
+        for (int i = 0; i < size; i++) {
+            sources[i] = MapUtil.newHashMap("id", i);
+        }
+
+        final BigDecimal sum = ArrayUtil.sum(sources, new OperableFunction<Map<String, Integer>>() {
+            @Override
+            public BigDecimal apply(Map<String, Integer> source) {
+                return new BigDecimal(source.get("id"));
+            }
+        });
+
+        Assert.assertTrue(sum.equals(BigDecimal.valueOf(45)));
+    }
 }

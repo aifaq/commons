@@ -177,11 +177,11 @@ public class StringUtil {
         Preconditions.checkNotNull(function);
 
         if (text == null) {
-            return ArrayUtil.newEmptyArray((Class) function.getType());
+            return ArrayUtil.newEmptyArray(function.getType());
         }
         final String[] array = StringUtils.split(text, separatorChars);
         if (ArrayUtils.isEmpty(array)) {
-            return ArrayUtil.newEmptyArray((Class) function.getType());
+            return ArrayUtil.newEmptyArray(function.getType());
         }
 
         return ArrayUtil.transform(array, function);

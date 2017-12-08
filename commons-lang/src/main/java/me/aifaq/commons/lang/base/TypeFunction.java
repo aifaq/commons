@@ -8,15 +8,19 @@ import java.lang.reflect.Type;
  * @since 11:14 2017/6/16
  */
 public abstract class TypeFunction<S, T> extends FunctionAdapter<S, T> {
-	protected final Type type;
+    protected final Class type;
 
-	public TypeFunction() {
-		Type superClass = getClass().getGenericSuperclass();
+    public TypeFunction() {
+        Type superClass = getClass().getGenericSuperclass();
 
-		type = ((ParameterizedType) superClass).getActualTypeArguments()[1];
-	}
+        this.type = (Class) ((ParameterizedType) superClass).getActualTypeArguments()[1];
+    }
 
-	public Type getType() {
-		return type;
-	}
+    public TypeFunction(Class type) {
+        this.type = type;
+    }
+
+    public Class<T> getType() {
+        return type;
+    }
 }
