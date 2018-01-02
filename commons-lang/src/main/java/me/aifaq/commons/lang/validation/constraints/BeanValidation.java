@@ -25,11 +25,15 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Constraint(validatedBy = { BeanValidationValidator.class })
 public @interface BeanValidation {
 	/**
-	 * 自定义校验逻辑实现类，必须是 {@link ConstraintValidatorAdapter} 的子类
+	 * 自定义校验逻辑实现类
+	 * <pre>
+	 * 1.必须是 {@link ConstraintValidatorAdapter} 的子类
+	 * 2.必须有默认构造
+	 * </pre>
 	 */
 	Class<?> value();
 
-	String message() default "{me.aifaq.validation.constraints.Depend.message}";
+	String message() default "{me.aifaq.validation.constraints.BeanValidation.message}";
 
 	Class<?>[] groups() default {};
 
