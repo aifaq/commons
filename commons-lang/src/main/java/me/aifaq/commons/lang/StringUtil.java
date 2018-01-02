@@ -18,6 +18,8 @@ public class StringUtil {
     public static final String SEMICOLON = Character.valueOf(CharUtil.SEMICOLON).toString();
     public static final String SPACING = Character.valueOf(CharUtil.SPACING).toString();
     public static final String BR = Character.valueOf(CharUtil.BR).toString();
+    public static final String FORWARD_SLASH = Character.valueOf(CharUtil.FORWARD_SLASH).toString();
+    public static final String BACK_SLASH = Character.valueOf(CharUtil.BACK_SLASH).toString();
 
     public static final String NULL = "null";
 

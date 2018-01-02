@@ -1,9 +1,12 @@
 package me.aifaq.commons.lang;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static me.aifaq.commons.lang.StringUtil.FORWARD_SLASH;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]
@@ -58,5 +61,42 @@ public class UrlUtil {
             return url;
         }
         return url.substring(0, index);
+    }
+
+    /**
+     * 拼接url地址
+     *
+     * @param urls
+     * @return
+     */
+    public static String concat(String... urls) {
+        if (ArrayUtils.isEmpty(urls)) {
+            return StringUtils.EMPTY;
+        }
+        if (urls.length == 1) {
+            return StringUtils.trimToEmpty(urls[0]);
+        }
+
+        String url = StringUtils.trimToEmpty(urls[0]);
+        for (int i = 1; i < urls.length; i++) {
+            if (StringUtils.isBlank(urls[i])) {
+                continue;
+            }
+            final String uri = StringUtils.trimToEmpty(urls[i]);
+            if (url.endsWith(FORWARD_SLASH)) {
+                if (uri.startsWith(FORWARD_SLASH)) {
+                    url += uri.substring(1);
+                } else {
+                    url += uri;
+                }
+            } else {
+                if (uri.startsWith(FORWARD_SLASH)) {
+                    url += uri;
+                } else {
+                    url += FORWARD_SLASH + uri;
+                }
+            }
+        }
+        return url;
     }
 }
