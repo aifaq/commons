@@ -28,4 +28,14 @@ public class DaoUtil {
         }
         return false;
     }
+
+    /**
+     * 是否有影响的行
+     *
+     * @param affectedRows
+     * @return
+     */
+    public static boolean affectedRows(Number affectedRows) {
+        return affectedRows != null && affectedRows.longValue() > 0;
+    }
 }
