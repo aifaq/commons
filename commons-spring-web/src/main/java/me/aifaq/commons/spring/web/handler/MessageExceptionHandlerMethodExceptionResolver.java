@@ -38,13 +38,14 @@ public class MessageExceptionHandlerMethodExceptionResolver extends AbstractHand
 			message = messageSource.getMessage(me.getCode(), me.getArgs(), me.getMessage(), LocaleContextHolder.getLocale());
 		}
 
-		return new ModelAndView(new MappingJackson2JsonView(), getModel(me.getCode(), message));
+		return new ModelAndView(new MappingJackson2JsonView(), getModel(me.getCode(), message, me.getAttributes()));
 	}
 
-	protected Map<String, Object> getModel(String code, String message) {
+	protected Map<String, Object> getModel(String code, String message, Map<String, Object> attributes) {
 		final Map<String, Object> model = Maps.newHashMap();
 		model.put("code", code);
 		model.put("message", message);
+		model.put("data", attributes);
 		return model;
 	}
 }
