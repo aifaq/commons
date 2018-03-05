@@ -275,12 +275,22 @@ public class CollectionUtil {
     }
 
     /**
-     * 创建{@link ArrayList}对象，长度为0
+     * 创建{@link ArrayList}对象，初始容量为0
      *
      * @param <T>
      * @return
      */
-    public static <T> List<T> newEmptyArrayList() {
+    public static <T> ArrayList<T> newEmptyArrayList() {
         return new ArrayList<>(0);
+    }
+
+    /**
+     * 创建{@link HashSet}对象，初始容量为0
+     *
+     * @param <T>
+     * @return
+     */
+    public static <T> HashSet<T> newEmptyHashSet() {
+        return new HashSet<>(0);
     }
 }

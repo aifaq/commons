@@ -1,13 +1,14 @@
 package me.aifaq.commons.lang;
 
 import com.google.common.base.Preconditions;
+import com.google.common.collect.Sets;
 import me.aifaq.commons.lang.base.TypeFunction;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]
@@ -114,12 +115,12 @@ public class StringUtil {
     /**
      * 分隔字符串返回List
      * <pre>
-     * StringUtils.split(null, *)         = []
-     * StringUtils.split("", *)           = []
-     * StringUtils.split("abc def", null) = ["abc", "def"]
-     * StringUtils.split("abc def", " ")  = ["abc", "def"]
-     * StringUtils.split("abc  def", " ") = ["abc", "def"]
-     * StringUtils.split("ab:cd:ef", ":") = ["ab", "cd", "ef"]
+     * StringUtil.splitAsList(null, *)         = []
+     * StringUtil.splitAsList("", *)           = []
+     * StringUtil.splitAsList("abc def", null) = ["abc", "def"]
+     * StringUtil.splitAsList("abc def", " ")  = ["abc", "def"]
+     * StringUtil.splitAsList("abc  def", " ") = ["abc", "def"]
+     * StringUtil.splitAsList("ab:cd:ab", ":") = ["ab", "cd", "ab"]
      * </pre>
      *
      * @param text
@@ -129,7 +130,7 @@ public class StringUtil {
     public static List<String> splitAsList(String text, String separatorChars) {
         final String[] array = StringUtils.split(text, separatorChars);
         if (ArrayUtils.isEmpty(array)) {
-            return new ArrayList<>(0);
+            return CollectionUtil.newEmptyArrayList();
         }
         return Arrays.asList(array);
     }
@@ -153,7 +154,7 @@ public class StringUtil {
     public static <T> List<T> splitAsList(String text, String separatorChars, TypeFunction<String, T> function) {
         final String[] array = StringUtils.split(text, separatorChars);
         if (ArrayUtils.isEmpty(array)) {
-            return new ArrayList<>(0);
+            return CollectionUtil.newEmptyArrayList();
         }
 
         return ArrayUtil.transformList(array, function);
@@ -240,5 +241,60 @@ public class StringUtil {
         }
 
         return sb.toString();
+    }
+
+    /**
+     * @see #splitAsSet(String, String)
+     */
+    public static Set<String> splitAsSet(String text) {
+        return splitAsSet(text, COMMA);
+    }
+
+    /**
+     * 分隔字符串返回Set
+     * <pre>
+     * StringUtil.splitAsSet(null, *)         = []
+     * StringUtil.splitAsSet("", *)           = []
+     * StringUtil.splitAsSet("abc def", null) = ["abc", "def"]
+     * StringUtil.splitAsSet("abc def", " ")  = ["abc", "def"]
+     * StringUtil.splitAsSet("abc  def", " ") = ["abc", "def"]
+     * StringUtil.splitAsSet("ab:cd:ab", ":") = ["ab", "cd"]
+     * </pre>
+     *
+     * @param text
+     * @param separatorChars
+     * @return
+     */
+    public static Set<String> splitAsSet(String text, String separatorChars) {
+        final String[] array = StringUtils.split(text, separatorChars);
+        if (ArrayUtils.isEmpty(array)) {
+            return CollectionUtil.newEmptyHashSet();
+        }
+        return Sets.newHashSet(array);
+    }
+
+    /**
+     * @see #splitAsSet(String, String, TypeFunction)
+     */
+    public static <T> Set<T> splitAsSet(String text, TypeFunction<String, T> function) {
+        return splitAsSet(text, COMMA, function);
+    }
+
+    /**
+     * 分隔字符串返回Set
+     *
+     * @param text
+     * @param separatorChars
+     * @param function
+     * @param <T>
+     * @return
+     */
+    public static <T> Set<T> splitAsSet(String text, String separatorChars, TypeFunction<String, T> function) {
+        final String[] array = StringUtils.split(text, separatorChars);
+        if (ArrayUtils.isEmpty(array)) {
+            return CollectionUtil.newEmptyHashSet();
+        }
+
+        return ArrayUtil.transformSet(array, function);
     }
 }

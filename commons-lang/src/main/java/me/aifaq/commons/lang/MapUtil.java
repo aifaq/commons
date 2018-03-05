@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
 import org.apache.commons.collections.MapUtils;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
@@ -134,15 +135,18 @@ public class MapUtil {
 
 		@Override
 		public boolean equals(Object o) {
-			if (this == o)
+			if (this == o) {
 				return true;
-			if (o == null || getClass() != o.getClass())
+			}
+			if (o == null || getClass() != o.getClass()) {
 				return false;
+			}
 
 			DefaultMapEntry<?, ?> that = (DefaultMapEntry<?, ?>) o;
 
-			if (key != null ? !key.equals(that.key) : that.key != null)
+			if (key != null ? !key.equals(that.key) : that.key != null) {
 				return false;
+			}
 			return value != null ? value.equals(that.value) : that.value == null;
 		}
 
@@ -160,5 +164,15 @@ public class MapUtil {
 
 	public static <K, V> V get(Map<K, V> map, K key, V defaultValue) {
 		return (V) MapUtils.getObject(map, key, defaultValue);
+	}
+
+	/**
+	 * 创建{@link HashMap}对象，初始容量为0
+	 *
+	 * @param <K, V>
+	 * @return
+	 */
+	public static <K, V> HashMap<K, V> newEmptyHashMap() {
+		return new HashMap<>(0);
 	}
 }

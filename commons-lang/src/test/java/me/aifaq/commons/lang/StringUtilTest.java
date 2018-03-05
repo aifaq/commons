@@ -4,6 +4,8 @@ import me.aifaq.commons.lang.base.TypeFunction;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Set;
+
 /**
  * @author Wang Wei [5waynewang@gmail.com]
  * @since 19:29 2017/7/31
@@ -26,5 +28,20 @@ public class StringUtilTest {
         for (int i = 0; i < results.length; i++) {
             Assert.assertTrue(i == results[i]);
         }
+    }
+
+    @Test
+    public void testSplitAsSet() {
+        final Set<String> strSet = StringUtil.splitAsSet("1,2,3,1,2");
+        Assert.assertEquals(strSet.size(), 3);
+
+
+        final Set<Long> longSet = StringUtil.splitAsSet("1,2,3,1,2", new TypeFunction<String, Long>() {
+            @Override
+            public Long apply(String source) {
+                return Long.valueOf(source);
+            }
+        });
+        Assert.assertEquals(longSet.size(), 3);
     }
 }
