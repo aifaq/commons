@@ -99,4 +99,14 @@ public class UrlUtil {
         }
         return url;
     }
+
+    /**
+     * 是否绝对路径
+     *
+     * @param url
+     * @return
+     */
+    public static boolean isAbsolutePath(String url) {
+        return StringUtils.startsWithAny(url, "http://", "https://", "//");
+    }
 }
