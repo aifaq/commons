@@ -259,7 +259,7 @@ public class CollectionUtil {
     }
 
     /**
-     * 获取集合的首个元素
+     * 获取集合的首元素
      *
      * @param collection
      * @param <T>
@@ -269,9 +269,41 @@ public class CollectionUtil {
         if (CollectionUtils.isEmpty(collection)) {
             return null;
         }
+        if (collection instanceof LinkedList) {
+            return ((LinkedList<T>) collection).getFirst();
+        } else if (collection instanceof List) {
+            return ((List<T>) collection).get(0);
+        }
         final Iterator<T> iterator = collection.iterator();
 
         return iterator.hasNext() ? iterator.next() : null;
+    }
+
+    /**
+     * 获取集合的尾元素
+     *
+     * @param collection
+     * @param <T>
+     * @return
+     */
+    public static <T> T last(Collection<T> collection) {
+        if (CollectionUtils.isEmpty(collection)) {
+            return null;
+        }
+        if (collection instanceof LinkedList) {
+            return ((LinkedList<T>) collection).getLast();
+        } else if (collection instanceof List) {
+            return ((List<T>) collection).get(collection.size() - 1);
+        }
+        final Iterator<T> iterator = collection.iterator();
+        T last = null;
+        do {
+            if (iterator.hasNext()) {
+                last = iterator.next();
+            } else {
+                return last;
+            }
+        } while (true);
     }
 
     /**
