@@ -33,6 +33,8 @@ public class StepTimeWindowTest {
 
         Assert.assertEquals(stepTimeWindow.getExpireNanoTime(), currentNanoTime + TimeUnit.SECONDS.toNanos(8));
 
+        System.out.println(stepTimeWindow);
+
         stepTimeWindow.renew();
 
         Assert.assertEquals(stepTimeWindow.getExpireNanoTime(), currentNanoTime + TimeUnit.SECONDS.toNanos(13));
@@ -40,5 +42,7 @@ public class StepTimeWindowTest {
         stepTimeWindow.reset();
 
         Assert.assertEquals(stepTimeWindow.getExpireNanoTime(), 0);
+
+        System.out.println(stepTimeWindow);
     }
 }

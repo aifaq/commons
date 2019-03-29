@@ -3,6 +3,7 @@ package me.aifaq.commons.lang.timer;
 import com.google.common.base.Preconditions;
 import me.aifaq.commons.lang.annotation.NotThreadSafe;
 
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -78,5 +79,16 @@ public class StepTimeWindow {
     public void reset() {
         this.expireNanoTime = 0;
         this.counter = 0;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("StepTimeWindow{");
+        sb.append("unit=").append(unit.name()).append(", ");
+        sb.append("steps=").append(Arrays.toString(steps)).append(", ");
+        sb.append("expireNanoTime=").append(expireNanoTime);
+        sb.append("}");
+        return sb.toString();
     }
 }
