@@ -1,1 +1,1 @@
-mvn clean install deploy -Dmaven.test.skip=true
+mvn clean deploy -Dmaven.test.skip=true
