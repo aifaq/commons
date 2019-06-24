@@ -65,5 +65,10 @@
             <artifactId>jackson-core</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
     </dependencies>
 </project>
