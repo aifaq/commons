@@ -69,6 +69,17 @@ public abstract class DateUtil {
     public static final long ONE_WEEK_MILLIS = 7 * ONE_DAY_MILLIS;
 
     /**
+     * @see #parseDate(String)
+     */
+    public static Date parse(String source) {
+        try {
+            return parseDate(source);
+        } catch (ParseException e) {
+            throw new IllegalArgumentException(source + " 这是日期？");
+        }
+    }
+
+    /**
      * 尽可能的把字符串转成日期
      *
      * @param source

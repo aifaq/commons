@@ -8,6 +8,15 @@ import java.util.*;
  */
 public class ServiceLoaderUtil {
     /**
+     * @see #load(ClassLoader, Class)
+     */
+    public static <T> T load(Class<T> clazz) {
+        final ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+
+        return load(classloader, clazz);
+    }
+
+    /**
      * Java SPI 获取类实例
      *
      * @param classloader
