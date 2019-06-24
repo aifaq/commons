@@ -3,7 +3,7 @@
     <groupId>me.aifaq</groupId>
     <artifactId>commons</artifactId>
 	<name>${project.artifactId}</name>
-    <version>0.8</version>
+    <version>0.9-SNAPSHOT</version>
     <packaging>pom</packaging>
 
 	<description>aggregate some useful class for java</description>
@@ -43,6 +43,8 @@
 		<module>commons-lang</module>
 		<module>commons-spring-core</module>
 		<module>commons-spring-web</module>
+        <module>commons-spring-boot-starter</module>
+        <module>commons-spring-cloud-starter</module>
 		<module>commons-spring-example</module>
 	</modules>
 	
@@ -181,6 +183,16 @@
 				<artifactId>commons-spring-web</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>commons-spring-boot-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>commons-spring-cloud-starter</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 			<!-- apache commons -->
 			<dependency>
 				<groupId>org.apache.commons</groupId>
