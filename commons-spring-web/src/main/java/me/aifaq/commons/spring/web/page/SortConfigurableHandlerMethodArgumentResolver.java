@@ -20,7 +20,7 @@ public class SortConfigurableHandlerMethodArgumentResolver extends SortHandlerMe
 	public Sort resolveArgument(MethodParameter parameter, ModelAndViewContainer mavContainer,
 			NativeWebRequest webRequest, WebDataBinderFactory binderFactory) {
 		final Sort sort = super.resolveArgument(parameter, mavContainer, webRequest, binderFactory);
-		if (sort == null || !sort.iterator().hasNext()) {
+		if (sort.isUnsorted()) {
 			return sort;
 		}
 
