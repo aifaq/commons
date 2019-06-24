@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import me.aifaq.commons.lang.base.OperableFunction;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.RoundingMode;
 import java.util.Collection;
 
@@ -54,88 +55,146 @@ public class NumberUtil {
         return new BigDecimal(target).setScale(-digits, RoundingMode.DOWN).longValue();
     }
 
-    public static Long toLongObject(Number number) {
-        return number == null ? null : number.longValue();
-    }
-
-    public static Long toLongObject(Object object) {
+    public static Long toLong(Object object) {
         if (object == null) {
             return null;
+        } else if (object instanceof Long) {
+            return (Long) object;
         } else if (object instanceof Number) {
-            return toLongObject((Number) object);
+            return ((Number) object).longValue();
+        } else if (object instanceof String) {
+            return Long.valueOf(((String) object).trim());
         } else {
             return Long.valueOf(object.toString());
         }
     }
 
-    public static Integer toInteger(Number number) {
-        return number == null ? null : number.intValue();
-    }
-
     public static Integer toInteger(Object object) {
         if (object == null) {
             return null;
+        } else if (object instanceof Integer) {
+            return (Integer) object;
         } else if (object instanceof Number) {
-            return toInteger((Number) object);
+            return ((Number) object).intValue();
+        } else if (object instanceof String) {
+            return Integer.valueOf(((String) object).trim());
         } else {
             return Integer.valueOf(object.toString());
         }
     }
 
-    public static Short toShortObject(Number number) {
-        return number == null ? null : number.shortValue();
-    }
-
-    public static Short toShortObject(Object object) {
+    public static Short toShort(Object object) {
         if (object == null) {
             return null;
+        } else if (object instanceof Short) {
+            return (Short) object;
         } else if (object instanceof Number) {
-            return toShortObject((Number) object);
+            return ((Number) object).shortValue();
+        } else if (object instanceof String) {
+            return Short.valueOf(((String) object).trim());
         } else {
             return Short.valueOf(object.toString());
         }
     }
 
-    public static Byte toByteObject(Number number) {
-        return number == null ? null : number.byteValue();
-    }
-
-    public static Byte toByteObject(Object object) {
+    public static Byte toByte(Object object) {
         if (object == null) {
             return null;
+        } else if (object instanceof Byte) {
+            return (Byte) object;
         } else if (object instanceof Number) {
-            return toByteObject((Number) object);
+            return ((Number) object).byteValue();
+        } else if (object instanceof String) {
+            return Byte.valueOf(((String) object).trim());
         } else {
             return Byte.valueOf(object.toString());
         }
     }
 
-    public static Double toDoubleObject(Number number) {
-        return number == null ? null : number.doubleValue();
-    }
-
-    public static Double toDoubleObject(Object object) {
+    public static Double toDouble(Object object) {
         if (object == null) {
             return null;
+        } else if (object instanceof Double) {
+            return (Double) object;
         } else if (object instanceof Number) {
-            return toDoubleObject((Number) object);
+            return ((Number) object).doubleValue();
+        } else if (object instanceof String) {
+            return Double.valueOf(((String) object).trim());
         } else {
             return Double.valueOf(object.toString());
         }
     }
 
-    public static Float toFloatObject(Number number) {
-        return number == null ? null : number.floatValue();
-    }
-
-    public static Float toFloatObject(Object object) {
+    public static Float toFloat(Object object) {
         if (object == null) {
             return null;
+        } else if (object instanceof Float) {
+            return (Float) object;
         } else if (object instanceof Number) {
-            return toFloatObject((Number) object);
+            return ((Number) object).floatValue();
+        } else if (object instanceof String) {
+            return Float.valueOf(((String) object).trim());
         } else {
             return Float.valueOf(object.toString());
         }
+    }
+
+    public static BigDecimal toBigDecimal(Object object) {
+        if (object == null) {
+            return null;
+        } else if (object instanceof BigDecimal) {
+            return (BigDecimal) object;
+        } else if (object instanceof Number) {
+            return new BigDecimal(object.toString());
+        } else if (object instanceof String) {
+            return new BigDecimal(((String) object).trim());
+        } else {
+            return new BigDecimal(object.toString());
+        }
+    }
+
+    public static BigInteger toBigInteger(Object object) {
+        if (object == null) {
+            return null;
+        } else if (object instanceof BigInteger) {
+            return (BigInteger) object;
+        } else if (object instanceof Number) {
+            return new BigInteger(object.toString());
+        } else if (object instanceof String) {
+            return new BigInteger(((String) object).trim());
+        } else {
+            return new BigInteger(object.toString());
+        }
+    }
+
+    @Deprecated
+    public static Long toLongObject(Object object) {
+        return toLong(object);
+    }
+
+    @Deprecated
+    public static Integer toIntegerObject(Object object) {
+        return toInteger(object);
+    }
+
+    @Deprecated
+    public static Short toShortObject(Object object) {
+        return toShort(object);
+    }
+
+    @Deprecated
+    public static Byte toByteObject(Object object) {
+        return toByte(object);
+    }
+
+    @Deprecated
+    public static Double toDoubleObject(Object object) {
+        return toDouble(object);
+    }
+
+    @Deprecated
+    public static Float toFloatObject(Object object) {
+        return toFloat(object);
     }
 
     /**
