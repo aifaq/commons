@@ -9,30 +9,22 @@
         <version>0.9</version>
 		<relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>commons-spring-core</artifactId>
+    <artifactId>commons-spring-boot-web-starter</artifactId>
     <name>${project.artifactId}</name>
     <packaging>jar</packaging>
     <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>commons-spring-web</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>commons-lang</artifactId>
+			<artifactId>commons-spring-boot-starter</artifactId>
 		</dependency>
-		<!-- spring -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-logging</artifactId>
-                    <groupId>commons-logging</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <!-- junit -->
+        <!-- springboot -->
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 </project>

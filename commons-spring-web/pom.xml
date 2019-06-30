@@ -6,7 +6,7 @@
     <parent>
         <groupId>me.aifaq</groupId>
         <artifactId>commons</artifactId>
-        <version>0.9-SNAPSHOT</version>
+        <version>0.9</version>
 		<relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>commons-spring-web</artifactId>
@@ -21,12 +21,6 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>commons-logging</artifactId>
-                    <groupId>commons-logging</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.data</groupId>

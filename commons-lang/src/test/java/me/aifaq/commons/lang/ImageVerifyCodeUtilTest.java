@@ -1,6 +1,5 @@
 package me.aifaq.commons.lang;
 
-import me.aifaq.commons.lang.ImageVerifyCodeUtil;
 import org.apache.commons.lang3.tuple.Pair;
 import org.junit.Test;
 
@@ -20,7 +19,7 @@ public class ImageVerifyCodeUtilTest {
 
 		System.out.println(pair.getKey());
 
-		final String file = "C:\\Users\\hzwangwei6\\Desktop\\VerifyCode.PNG";
+		final String file = "~/Downloads/VerifyCode.PNG";
 
 		ImageIO.write(pair.getRight(), "PNG", new File(file));
 	}
