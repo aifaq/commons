@@ -7,6 +7,7 @@ import org.apache.commons.lang3.time.DateUtils;
 
 import java.sql.Timestamp;
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -230,5 +231,53 @@ public abstract class DateUtil {
             }
         }
         return max;
+    }
+
+    /**
+     * 获取季初日期
+     */
+    public static Date getQuarterFirstDay(Date date) {
+        final Calendar c = Calendar.getInstance();
+        c.setTime(date);
+
+        final int month = c.get(Calendar.MONTH);
+        if (month >= Calendar.JANUARY && month <= Calendar.MARCH) {
+            c.set(Calendar.MONTH, Calendar.MARCH);
+            c.set(Calendar.DAY_OF_MONTH, 1);
+        } else if (month >= Calendar.APRIL && month <= Calendar.JUNE) {
+            c.set(Calendar.MONTH, Calendar.JUNE);
+            c.set(Calendar.DAY_OF_MONTH, 1);
+        } else if (month >= Calendar.JULY && month <= Calendar.SEPTEMBER) {
+            c.set(Calendar.MONTH, Calendar.SEPTEMBER);
+            c.set(Calendar.DAY_OF_MONTH, 1);
+        } else {
+            c.set(Calendar.MONTH, Calendar.DECEMBER);
+            c.set(Calendar.DAY_OF_MONTH, 1);
+        }
+        return c.getTime();
+    }
+
+    /**
+     * 获取季末日期
+     */
+    public static Date getQuarterLastDay(Date date) {
+        final Calendar c = Calendar.getInstance();
+        c.setTime(date);
+
+        final int month = c.get(Calendar.MONTH);
+        if (month >= Calendar.JANUARY && month <= Calendar.MARCH) {
+            c.set(Calendar.MONTH, Calendar.MARCH);
+            c.set(Calendar.DAY_OF_MONTH, 31);
+        } else if (month >= Calendar.APRIL && month <= Calendar.JUNE) {
+            c.set(Calendar.MONTH, Calendar.JUNE);
+            c.set(Calendar.DAY_OF_MONTH, 30);
+        } else if (month >= Calendar.JULY && month <= Calendar.SEPTEMBER) {
+            c.set(Calendar.MONTH, Calendar.SEPTEMBER);
+            c.set(Calendar.DAY_OF_MONTH, 30);
+        } else {
+            c.set(Calendar.MONTH, Calendar.DECEMBER);
+            c.set(Calendar.DAY_OF_MONTH, 31);
+        }
+        return c.getTime();
     }
 }
