@@ -1,10 +1,10 @@
 package me.aifaq.commons.lang;
 
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -17,68 +17,61 @@ public class DateUtilTest {
         String text;
 
         text = "2017";
-        Assert.assertEquals(DateUtil.parseDate(text), new SimpleDateFormat("yyyy").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMdd"), "20170101");
 
         text = "201701";
-        Assert.assertEquals(DateUtil.parseDate(text), new SimpleDateFormat("yyyyMM").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMdd"), "20170101");
 
         text = "20170102";
-        Assert.assertEquals(DateUtil.parseDate(text), new SimpleDateFormat("yyyyMMdd").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMdd"), "20170102");
 
         text = "2017010203";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyyMMddHH").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHH"), "2017010203");
 
         text = "201701020304";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyyMMddHHmm").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHHmm"), "201701020304");
 
         text = "20170102030405";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyyMMddHHmmss").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHHmmss"), "20170102030405");
 
         text = "201701020304056";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyyMMddHHmmssS").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHHmmssS"), "201701020304056");
 
         text = "2017010203040567";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyyMMddHHmmssSS").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHHmmssSS"), "2017010203040567");
 
         text = "20170102030405678";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyyMMddHHmmssSSS").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHHmmssSSS"), "20170102030405678");
 
         text = "2017-01";
-        Assert.assertEquals(DateUtil.parseDate(text), new SimpleDateFormat("yyyy-MM").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMdd"), "20170101");
+
+        text = "2017.01";
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMdd"), "20170101");
 
         text = "2017-01-02";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyy-MM-dd").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMdd"), "20170102");
+
+        text = "2017.01.02";
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMdd"), "20170102");
 
         text = "2017-01-02 03";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyy-MM-dd HH").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHH"), "2017010203");
 
         text = "2017-01-02 03:04";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHHmm"), "201701020304");
 
         text = "2017-01-02 03:04:05";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHHmmss"), "20170102030405");
 
         text = "2017-01-02 03:04:05.6";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHHmmssS"), "201701020304056");
 
         text = "2017-01-02 03:04:05.67";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SS").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHHmmssSS"), "2017010203040567");
 
         text = "2017-01-02 03:04:05.678";
-        Assert.assertEquals(DateUtil.parseDate(text),
-                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(text));
+        Assert.assertEquals(DateFormatUtils.format(DateUtil.parseDate(text), "yyyyMMddHHmmssSSS"), "20170102030405678");
 
         text = String.valueOf(System.currentTimeMillis());
         Assert.assertEquals(DateUtil.parseDate(text), new Date(Long.parseLong(text)));

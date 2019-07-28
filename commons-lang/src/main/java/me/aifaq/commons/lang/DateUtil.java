@@ -69,6 +69,22 @@ public abstract class DateUtil {
     // 一周
     public static final long ONE_WEEK_MILLIS = 7 * ONE_DAY_MILLIS;
 
+    public static final String[] PARSE_DATE_PATTERNS_4 = {yyyy};
+    public static final String[] PARSE_DATE_PATTERNS_6 = {yyyyMM};
+    public static final String[] PARSE_DATE_PATTERNS_7 = {yyyy$MM, "yyyy.MM"};
+    public static final String[] PARSE_DATE_PATTERNS_8 = {yyyyMMdd};
+    public static final String[] PARSE_DATE_PATTERNS_10 = {yyyy$MM$dd, yyyyMMddHH, "yyyy.MM.dd"};
+    public static final String[] PARSE_DATE_PATTERNS_12 = {yyyyMMddHHmm};
+    public static final String[] PARSE_DATE_PATTERNS_13 = {yyyy$MM$dd$HH};
+    public static final String[] PARSE_DATE_PATTERNS_14 = {yyyyMMddHHmmss};
+    public static final String[] PARSE_DATE_PATTERNS_15 = {yyyyMMddHHmmssS};
+    public static final String[] PARSE_DATE_PATTERNS_16 = {yyyy$MM$dd$HH$mm, yyyyMMddHHmmssSS};
+    public static final String[] PARSE_DATE_PATTERNS_17 = {yyyyMMddHHmmssSSS};
+    public static final String[] PARSE_DATE_PATTERNS_19 = {yyyy$MM$dd$HH$mm$ss};
+    public static final String[] PARSE_DATE_PATTERNS_21 = {yyyy$MM$dd$HH$mm$ss$S};
+    public static final String[] PARSE_DATE_PATTERNS_22 = {yyyy$MM$dd$HH$mm$ss$SS};
+    public static final String[] PARSE_DATE_PATTERNS_23 = {yyyy$MM$dd$HH$mm$ss$SSS};
+
     /**
      * @see #parseDate(String)
      */
@@ -95,39 +111,39 @@ public abstract class DateUtil {
 
         switch (source.length()) {
             case 4:
-                return DateUtils.parseDate(source, yyyy);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_4);
             case 6:
-                return DateUtils.parseDate(source, yyyyMM);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_6);
             case 7:
-                return DateUtils.parseDate(source, yyyy$MM);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_7);
             case 8:
-                return DateUtils.parseDate(source, yyyyMMdd);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_8);
             case 10:
-                return DateUtils.parseDate(source, yyyy$MM$dd, yyyyMMddHH);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_10);
             case 12:
-                return DateUtils.parseDate(source, yyyyMMddHHmm);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_12);
             case 13:
                 // 1494511806790
                 if (NumberUtils.isCreatable(source)) {
                     return new Date(Long.parseLong(source));
                 }
-                return DateUtils.parseDate(source, yyyy$MM$dd$HH);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_13);
             case 14:
-                return DateUtils.parseDate(source, yyyyMMddHHmmss);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_14);
             case 15:
-                return DateUtils.parseDate(source, yyyyMMddHHmmssS);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_15);
             case 16:
-                return DateUtils.parseDate(source, yyyy$MM$dd$HH$mm, yyyyMMddHHmmssSS);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_16);
             case 17:
-                return DateUtils.parseDate(source, yyyyMMddHHmmssSSS);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_17);
             case 19:
-                return DateUtils.parseDate(source, yyyy$MM$dd$HH$mm$ss);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_19);
             case 21:
-                return DateUtils.parseDate(source, yyyy$MM$dd$HH$mm$ss$S);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_21);
             case 22:
-                return DateUtils.parseDate(source, yyyy$MM$dd$HH$mm$ss$SS);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_22);
             case 23:
-                return DateUtils.parseDate(source, yyyy$MM$dd$HH$mm$ss$SSS);
+                return DateUtils.parseDate(source, PARSE_DATE_PATTERNS_23);
             default:
                 throw new ParseException("Unable to parse the date: " + source, -1);
         }
