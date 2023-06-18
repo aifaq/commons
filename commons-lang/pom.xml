@@ -6,8 +6,7 @@
     <parent>
         <groupId>me.aifaq</groupId>
         <artifactId>commons</artifactId>
-        <version>1.0.0</version>
-		<relativePath>../pom.xml</relativePath>
+        <version>${revision}</version>
     </parent>
     <artifactId>commons-lang</artifactId>
     <name>${project.artifactId}</name>
@@ -19,8 +18,8 @@
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
         <dependency>
-            <groupId>commons-collections</groupId>
-            <artifactId>commons-collections</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
@@ -37,26 +36,31 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- j2ee -->
+        <!-- jakarta -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <!-- Bean Validation -->
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
+            <groupId>jakarta.el</groupId>
+            <artifactId>jakarta.el-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-el</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>javax.el-api</artifactId>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
             <scope>test</scope>
         </dependency>
         <!-- jackson -->

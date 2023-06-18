@@ -1,11 +1,10 @@
 package me.aifaq.commons.spring.example.entity;
 
+import jakarta.validation.constraints.NotNull;
 import me.aifaq.commons.lang.validation.group.Create;
 import me.aifaq.commons.lang.validation.group.Retrieve;
 import me.aifaq.commons.lang.validation.group.Update;
 import org.hibernate.validator.constraints.Length;
-
-import javax.validation.constraints.NotNull;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]

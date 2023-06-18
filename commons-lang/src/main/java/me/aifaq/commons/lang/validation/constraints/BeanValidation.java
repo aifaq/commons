@@ -1,10 +1,10 @@
 package me.aifaq.commons.lang.validation.constraints;
 
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 import me.aifaq.commons.lang.validation.constraintvalidators.BeanValidationValidator;
 import me.aifaq.commons.lang.validation.validator.ConstraintValidatorAdapter;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

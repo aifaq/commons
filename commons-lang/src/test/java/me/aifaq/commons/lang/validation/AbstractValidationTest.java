@@ -1,11 +1,10 @@
 package me.aifaq.commons.lang.validation;
 
+import jakarta.validation.Configuration;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
 import org.hibernate.validator.HibernateValidatorConfiguration;
 import org.junit.Before;
-
-import javax.validation.Configuration;
-import javax.validation.Validation;
-import javax.validation.Validator;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]

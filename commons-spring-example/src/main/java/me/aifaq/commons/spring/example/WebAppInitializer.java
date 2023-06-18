@@ -1,5 +1,7 @@
 package me.aifaq.commons.spring.example;
 
+import jakarta.servlet.Filter;
+import jakarta.servlet.ServletRegistration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContextInitializer;
@@ -11,8 +13,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.filter.ShallowEtagHeaderFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-import javax.servlet.Filter;
-import javax.servlet.ServletRegistration;
 import java.io.IOException;
 import java.util.Arrays;
 

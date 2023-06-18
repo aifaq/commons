@@ -6,8 +6,7 @@
     <parent>
         <groupId>me.aifaq</groupId>
         <artifactId>commons</artifactId>
-        <version>1.0.0</version>
-		<relativePath>../pom.xml</relativePath>
+        <version>${revision}</version>
     </parent>
     <artifactId>commons-spring-example</artifactId>
     <name>${project.artifactId}</name>
@@ -53,10 +52,10 @@
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
         </dependency>
-        <!-- j2ee -->
+        <!-- jakarta -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
         </dependency>
         <!-- junit -->
         <dependency>
@@ -66,12 +65,8 @@
         </dependency>
         <!-- Bean Validation -->
         <dependency>
-            <groupId>org.hibernate</groupId>
+            <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.el</groupId>
-            <artifactId>javax.el-api</artifactId>
         </dependency>
         <!-- slf4j -->
         <dependency>

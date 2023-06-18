@@ -3,16 +3,15 @@
  */
 package me.aifaq.commons.lang.validation.constraints;
 
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 import me.aifaq.commons.lang.validation.constraintvalidators.FutureExtValidatorForCalendar;
 import me.aifaq.commons.lang.validation.constraintvalidators.FutureExtValidatorForDate;
 import me.aifaq.commons.lang.validation.constraintvalidators.FutureExtValidatorForLong;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
-import java.util.Calendar;
 
 import static java.lang.annotation.ElementType.*;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;

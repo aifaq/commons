@@ -4,7 +4,7 @@ import com.google.common.base.Preconditions;
 import me.aifaq.commons.lang.base.Function;
 import me.aifaq.commons.lang.base.MappableFunction;
 import me.aifaq.commons.lang.base.OperableFunction;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.math.BigDecimal;

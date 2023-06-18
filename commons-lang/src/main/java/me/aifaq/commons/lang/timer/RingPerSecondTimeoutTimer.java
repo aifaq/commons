@@ -2,7 +2,7 @@ package me.aifaq.commons.lang.timer;
 
 import com.google.common.base.Preconditions;
 import me.aifaq.commons.lang.concurrent.NamedThreadFactory;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.HashSet;

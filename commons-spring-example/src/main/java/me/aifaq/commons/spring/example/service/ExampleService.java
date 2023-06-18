@@ -1,5 +1,7 @@
 package me.aifaq.commons.spring.example.service;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import me.aifaq.commons.lang.validation.group.Create;
 import me.aifaq.commons.lang.validation.group.Retrieve;
 import me.aifaq.commons.lang.validation.group.Update;
@@ -7,9 +9,6 @@ import me.aifaq.commons.spring.example.entity.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]

@@ -35,8 +35,9 @@ public class EmbeddedServer {
 		standardRoot.createWebResourceSet(ResourceSetType.CLASSES_JAR, "/WEB-INF/classes", additionWebInfClasses.getAbsolutePath(), "classes", "/");
 
 		ctx.setResources(standardRoot);
-		
-		ctx.setLoader(new WebappLoader(EmbeddedServer.class.getClassLoader()));
+
+//		ctx.setLoader(new WebappLoader(EmbeddedServer.class.getClassLoader()));
+		ctx.setLoader(new WebappLoader());
 		ctx.getLoader().setDelegate(true);
 
 		tomcat.start();

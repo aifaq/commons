@@ -3,12 +3,12 @@
  */
 package me.aifaq.commons.lang.validation.constraints;
 
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 import me.aifaq.commons.lang.validation.constraintvalidators.PastExtValidatorForCalendar;
 import me.aifaq.commons.lang.validation.constraintvalidators.PastExtValidatorForDate;
 import me.aifaq.commons.lang.validation.constraintvalidators.PastExtValidatorForLong;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;

@@ -2,7 +2,7 @@ package me.aifaq.commons.lang;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
-import org.apache.commons.collections.MapUtils;
+import org.apache.commons.collections4.MapUtils;
 
 import java.util.Calendar;
 import java.util.Date;

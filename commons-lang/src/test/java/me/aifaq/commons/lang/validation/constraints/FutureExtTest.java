@@ -1,11 +1,11 @@
 package me.aifaq.commons.lang.validation.constraints;
 
+import jakarta.validation.ConstraintViolation;
 import me.aifaq.commons.lang.DateUtil;
 import me.aifaq.commons.lang.validation.AbstractValidationTest;
 import org.junit.Assert;
 import org.junit.Test;
 
-import javax.validation.ConstraintViolation;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.Calendar;

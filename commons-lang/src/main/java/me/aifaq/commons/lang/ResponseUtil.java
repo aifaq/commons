@@ -2,8 +2,8 @@ package me.aifaq.commons.lang;
 
 import com.google.common.net.HttpHeaders;
 import com.google.common.net.MediaType;
+import jakarta.servlet.http.HttpServletResponse;
 
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 

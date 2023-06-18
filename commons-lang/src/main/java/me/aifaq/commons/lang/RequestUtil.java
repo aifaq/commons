@@ -1,8 +1,7 @@
 package me.aifaq.commons.lang;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
-
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]
