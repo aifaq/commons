@@ -1,14 +1,16 @@
 package me.aifaq.commons.spring.boot.web.mvc;
 
 import com.google.common.collect.Maps;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import me.aifaq.commons.spring.converter.StringToCalendarConverter;
 import me.aifaq.commons.spring.converter.StringToDateConverter;
 import me.aifaq.commons.spring.converter.StringToTimestampConverter;
 import me.aifaq.commons.spring.web.handler.BeanValidationHandlerMethodExceptionResolver;
 import me.aifaq.commons.spring.web.handler.MessageExceptionHandlerMethodExceptionResolver;
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.tomcat.util.http.fileupload.FileUploadBase;
+import org.apache.tomcat.util.http.fileupload.impl.FileSizeLimitExceededException;
 import org.hibernate.validator.HibernateValidatorConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -26,8 +28,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 
@@ -79,8 +79,8 @@ public class DefaultWebMvcConfigurer implements WebMvcConfigurer {
                 if (ex instanceof MultipartException) {
                     final MultipartException me = (MultipartException) ex;
                     final Throwable t = ExceptionUtils.getRootCause(me);
-                    if (t instanceof FileUploadBase.FileSizeLimitExceededException) {
-                        final FileUploadBase.FileSizeLimitExceededException fe = (FileUploadBase.FileSizeLimitExceededException) t;
+                    if (t instanceof FileSizeLimitExceededException) {
+                        final FileSizeLimitExceededException fe = (FileSizeLimitExceededException) t;
 
                         final String defaultMessage = String.format("文件%s太大，请重新上传", fe.getFileName());
                         final Map<String, Object> model = Maps.newHashMap();
