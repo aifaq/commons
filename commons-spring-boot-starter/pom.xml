@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+        xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>me.aifaq</groupId>
@@ -9,15 +9,10 @@
         <version>${revision}</version>
     </parent>
     <artifactId>commons-spring-boot-starter</artifactId>
-    <name>${project.artifactId}</name>
-    <packaging>jar</packaging>
+    <name>commons-spring-boot-starter</name>
+
     <dependencies>
-		<dependency>
-			<groupId>${project.groupId}</groupId>
-			<artifactId>commons-spring-web</artifactId>
-            <scope>provided</scope>
-		</dependency>
-        <!-- springboot -->
+        <!-- springboot core -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-autoconfigure</artifactId>
@@ -26,9 +21,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
+        <!-- springboot web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>commons-spring-web</artifactId>
             <scope>provided</scope>
         </dependency>
         <!-- slf4j -->
