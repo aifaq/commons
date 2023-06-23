@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package me.aifaq.commons.lang.validation.constraintvalidators;
 
@@ -38,7 +38,7 @@ public abstract class PastExtValidatorAbstract<T> implements ConstraintValidator
             return true;
         }
 
-        final Date targetDate;
+        Date targetDate;
         if (StringUtils.isBlank(constraintAnnotation.value())) {
             targetDate = new Date();
         } else {

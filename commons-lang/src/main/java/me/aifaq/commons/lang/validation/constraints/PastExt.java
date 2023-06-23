@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package me.aifaq.commons.lang.validation.constraints;
 
@@ -31,12 +31,15 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * @author Wang Wei [5waynewang@gmail.com]
  * @since 11:25:08 AM May 17, 2016
  */
-@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = { PastExtValidatorForDate.class, PastExtValidatorForCalendar.class, PastExtValidatorForLong.class })
+@Constraint(validatedBy = {PastExtValidatorForDate.class, PastExtValidatorForCalendar.class, PastExtValidatorForLong.class})
 public @interface PastExt {
 
+    /**
+     * 默认当前时间
+     */
     String value() default "";
 
     /**
@@ -55,7 +58,7 @@ public @interface PastExt {
      *
      * @see PastExt
      */
-    @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+    @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
     @Retention(RUNTIME)
     @Documented
     @interface List {

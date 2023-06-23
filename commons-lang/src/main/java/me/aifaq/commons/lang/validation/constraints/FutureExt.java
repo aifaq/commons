@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package me.aifaq.commons.lang.validation.constraints;
 
@@ -31,22 +31,16 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * @author Wang Wei [5waynewang@gmail.com]
  * @since 11:25:08 AM May 17, 2016
  */
-@Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+@Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = { FutureExtValidatorForDate.class, FutureExtValidatorForCalendar.class, FutureExtValidatorForLong.class })
+@Constraint(validatedBy = {FutureExtValidatorForDate.class, FutureExtValidatorForCalendar.class, FutureExtValidatorForLong.class})
 public @interface FutureExt {
 
-    String value() default "";
-
     /**
-     * 当以当前日期衡量Future，当天的时间是否都有效
-     * <pre>
-     *     eg: 当前 2017-08-14 15:24:35
-     *     那么是否只要是 2017-08-14 当天的时间，都会有效
-     * </pre>
+     * 默认当前时间
      */
-    boolean includeAllDayIfFutureNow() default false;
+    String value() default "";
 
     /**
      * 是否包含目标值
@@ -64,7 +58,7 @@ public @interface FutureExt {
      *
      * @see FutureExt
      */
-    @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
+    @Target({METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER})
     @Retention(RUNTIME)
     @Documented
     @interface List {

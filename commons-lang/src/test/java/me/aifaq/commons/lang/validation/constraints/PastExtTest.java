@@ -1,6 +1,7 @@
 package me.aifaq.commons.lang.validation.constraints;
 
 import jakarta.validation.ConstraintViolation;
+import lombok.Data;
 import me.aifaq.commons.lang.DateUtil;
 import me.aifaq.commons.lang.validation.AbstractValidationTest;
 import org.junit.Assert;
@@ -105,6 +106,7 @@ public class PastExtTest extends AbstractValidationTest {
         Assert.assertTrue(set.size() == 0);
     }
 
+    @Data
     static class TestBean {
         @PastExt
         private Long defaultLong;
@@ -118,53 +120,5 @@ public class PastExtTest extends AbstractValidationTest {
         private Calendar defaultCalendar;
         @PastExt(value = "20170801")
         private Calendar customCalendar;
-
-        public Long getDefaultLong() {
-            return defaultLong;
-        }
-
-        public void setDefaultLong(Long defaultLong) {
-            this.defaultLong = defaultLong;
-        }
-
-        public Long getCustomLong() {
-            return customLong;
-        }
-
-        public void setCustomLong(Long customLong) {
-            this.customLong = customLong;
-        }
-
-        public Date getDefaultDate() {
-            return defaultDate;
-        }
-
-        public void setDefaultDate(Date defaultDate) {
-            this.defaultDate = defaultDate;
-        }
-
-        public Date getCustomDate() {
-            return customDate;
-        }
-
-        public void setCustomDate(Date customDate) {
-            this.customDate = customDate;
-        }
-
-        public Calendar getDefaultCalendar() {
-            return defaultCalendar;
-        }
-
-        public void setDefaultCalendar(Calendar defaultCalendar) {
-            this.defaultCalendar = defaultCalendar;
-        }
-
-        public Calendar getCustomCalendar() {
-            return customCalendar;
-        }
-
-        public void setCustomCalendar(Calendar customCalendar) {
-            this.customCalendar = customCalendar;
-        }
     }
 }

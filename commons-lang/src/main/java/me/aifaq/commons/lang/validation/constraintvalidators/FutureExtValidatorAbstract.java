@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package me.aifaq.commons.lang.validation.constraintvalidators;
 
@@ -10,7 +10,6 @@ import me.aifaq.commons.lang.DateUtil;
 import me.aifaq.commons.lang.exception.ImpossibleArrivedException;
 import me.aifaq.commons.lang.validation.constraints.FutureExt;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.time.DateUtils;
 
 import java.text.ParseException;
 import java.util.Calendar;
@@ -39,13 +38,9 @@ public abstract class FutureExtValidatorAbstract<T> implements ConstraintValidat
             return true;
         }
 
-        final Date targetDate;
+        Date targetDate;
         if (StringUtils.isBlank(constraintAnnotation.value())) {
-            if (constraintAnnotation.includeAllDayIfFutureNow()) {
-                targetDate = DateUtils.truncate(new Date(), Calendar.DATE);
-            } else {
-                targetDate = new Date();
-            }
+            targetDate = new Date();
         } else {
             try {
                 targetDate = DateUtil.parseDate(constraintAnnotation.value());
