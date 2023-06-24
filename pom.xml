@@ -137,6 +137,8 @@
                     <charset>${project.build.sourceEncoding}</charset>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <docencoding>${project.build.sourceEncoding}</docencoding>
+                    <additionalOptions>-Xdoclint:none</additionalOptions>
+                    <!-- TODO 临时解决不规范的javadoc生成报错,后面要规范化后把这行去掉 -->
                 </configuration>
             </plugin>
 

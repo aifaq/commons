@@ -1,1 +1,1 @@
-mvn clean deploy -Dmaven.test.skip=true -Dgpg.skip=false
+mvn clean deploy -Dmaven.test.skip=true -Dgpg.skip=false -Djavadoc.skip=false
