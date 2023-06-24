@@ -77,7 +77,7 @@
     </repositories>
 
     <properties>
-        <revision>2.0.0-SNAPSHOT</revision>
+        <revision>2.0.0</revision>
         <java.version>17</java.version>
         <gpg.skip>true</gpg.skip>
         <javadoc.skip>true</javadoc.skip>
