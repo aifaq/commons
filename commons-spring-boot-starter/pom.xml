@@ -6,13 +6,19 @@
     <parent>
         <groupId>me.aifaq</groupId>
         <artifactId>commons</artifactId>
-        <version>${revision}</version>
+        <version>2.0.3</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>commons-spring-boot-starter</artifactId>
     <packaging>jar</packaging>
     <name>${project.artifactId}</name>
     <dependencies>
+        <!-- me.aifaq -->
+        <dependency>
+            <groupId>me.aifaq</groupId>
+            <artifactId>commons-spring-web</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <!-- springboot core -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -26,12 +32,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>me.aifaq</groupId>
-            <artifactId>commons-spring-web</artifactId>
-            <version>${project.parent.version}</version>
             <scope>provided</scope>
         </dependency>
         <!-- slf4j -->
