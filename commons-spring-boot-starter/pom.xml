@@ -7,10 +7,11 @@
         <groupId>me.aifaq</groupId>
         <artifactId>commons</artifactId>
         <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>commons-spring-boot-starter</artifactId>
-    <name>commons-spring-boot-starter</name>
-
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
     <dependencies>
         <!-- springboot core -->
         <dependency>
@@ -28,8 +29,9 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>me.aifaq</groupId>
             <artifactId>commons-spring-web</artifactId>
+            <version>${project.parent.version}</version>
             <scope>provided</scope>
         </dependency>
         <!-- slf4j -->

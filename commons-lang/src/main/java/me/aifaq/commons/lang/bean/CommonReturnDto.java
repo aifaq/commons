@@ -1,11 +1,15 @@
 package me.aifaq.commons.lang.bean;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]
  * @since 11:29 2017/6/16
  */
+@Data
+@NoArgsConstructor
 public class CommonReturnDto<T> {
 	public static final String SUCCESS = "200";
 
@@ -13,39 +17,12 @@ public class CommonReturnDto<T> {
 	private String message;
 	private T data;
 
-	public CommonReturnDto() {
-	}
-
 	public CommonReturnDto(String code, String message) {
 		this.code = code;
 		this.message = message;
 	}
 
 	public CommonReturnDto(T data) {
-		this.data = data;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public T getData() {
-		return data;
-	}
-
-	public void setData(T data) {
 		this.data = data;
 	}
 

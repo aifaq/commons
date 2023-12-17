@@ -1,6 +1,3 @@
-/**
- * 
- */
 package org.until.keyword;
 
 import org.junit.Before;

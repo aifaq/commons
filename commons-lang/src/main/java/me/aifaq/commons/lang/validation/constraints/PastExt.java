@@ -1,6 +1,3 @@
-/**
- *
- */
 package me.aifaq.commons.lang.validation.constraints;
 
 import jakarta.validation.Constraint;

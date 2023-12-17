@@ -7,14 +7,16 @@
         <groupId>me.aifaq</groupId>
         <artifactId>commons</artifactId>
         <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>commons-spring-core</artifactId>
-    <name>commons-spring-core</name>
-
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>me.aifaq</groupId>
             <artifactId>commons-lang</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
         <!-- spring -->
         <dependency>

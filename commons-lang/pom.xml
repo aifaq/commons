@@ -7,10 +7,11 @@
         <groupId>me.aifaq</groupId>
         <artifactId>commons</artifactId>
         <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>commons-lang</artifactId>
-    <name>commons-lang</name>
-
+    <packaging>jar</packaging>
+    <name>${project.artifactId}</name>
     <dependencies>
         <!-- apache commons -->
         <dependency>
@@ -52,6 +53,16 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <!-- slf4j -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
         </dependency>
         <!-- lombok -->
         <dependency>
