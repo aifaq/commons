@@ -2,6 +2,7 @@ package me.aifaq.commons.lang;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -44,5 +45,14 @@ public class CookieUtil {
 		final Cookie cookie = getCookie(request, name);
 
 		return cookie != null ? cookie.getValue() : null;
+	}
+
+	/**
+	 * 删除cookie
+	 */
+	public static void deleteCookie(HttpServletResponse response, String name) {
+		final Cookie cookie = new Cookie(name, "");
+		cookie.setMaxAge(0);
+		response.addCookie(cookie);
 	}
 }

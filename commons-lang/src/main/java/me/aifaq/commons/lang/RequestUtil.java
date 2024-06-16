@@ -3,12 +3,15 @@ package me.aifaq.commons.lang;
 import jakarta.servlet.http.HttpServletRequest;
 import org.apache.commons.lang3.StringUtils;
 
+import static me.aifaq.commons.lang.StringUtil.EMPTY;
+import static me.aifaq.commons.lang.StringUtil.FORWARD_SLASH;
+
 /**
  * @author Wang Wei [5waynewang@gmail.com]
  * @since 20:20 2017/5/18
  */
 public class RequestUtil {
-    public static final String UNKNOWN = "unknown";
+    public static final String UNKNOWN = StringUtil.UNKNOWN;
 
     public static final String HTTP_SCHEME = "http";
     public static final int HTTP_DEFAULT_PORT = 80;
@@ -79,9 +82,9 @@ public class RequestUtil {
      */
     public static String getContextPath(HttpServletRequest request) {
         final String contextPath = request.getContextPath();
-        if ("/".equals(contextPath)) {
+        if (FORWARD_SLASH.equals(contextPath)) {
             // Invalid case, but happens for includes on Jetty: silently adapt it.
-            return "";
+            return EMPTY;
         }
         return contextPath;
     }

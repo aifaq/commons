@@ -15,14 +15,33 @@ import java.util.Set;
  * @since 15:13 2017/5/22
  */
 public class StringUtil {
+    /**
+     * 逗号
+     */
     public static final String COMMA = Character.valueOf(CharUtil.COMMA).toString();
+    /**
+     * 分号
+     */
     public static final String SEMICOLON = Character.valueOf(CharUtil.SEMICOLON).toString();
+    /**
+     * 空格
+     */
     public static final String SPACING = Character.valueOf(CharUtil.SPACING).toString();
+    /**
+     * 换行
+     */
     public static final String BR = Character.valueOf(CharUtil.BR).toString();
+    /**
+     * 正斜杠
+     */
     public static final String FORWARD_SLASH = Character.valueOf(CharUtil.FORWARD_SLASH).toString();
+    /**
+     * 反斜杠
+     */
     public static final String BACK_SLASH = Character.valueOf(CharUtil.BACK_SLASH).toString();
-
+    public static final String EMPTY = "";
     public static final String NULL = "null";
+    public static final String UNKNOWN = "unknown";
 
     /**
      * @see #concatTwoSide(String, String, String)
@@ -296,5 +315,12 @@ public class StringUtil {
         }
 
         return ArrayUtil.transformSet(array, function);
+    }
+
+    /**
+     * 在目标字符串两边追加字符
+     */
+    public static String appendTwoSide(String str, String prefix, String suffix) {
+        return prefix + str + suffix;
     }
 }

@@ -38,4 +38,16 @@ public class DaoUtil {
     public static boolean affectedRows(Number affectedRows) {
         return affectedRows != null && affectedRows.longValue() > 0;
     }
+
+    public static String likeTwoSide(String str) {
+        return StringUtil.appendTwoSide(str, "%", "%");
+    }
+
+    public static String likePrefix(String str) {
+        return StringUtil.appendTwoSide(str, "%", "");
+    }
+
+    public static String likeSuffix(String str) {
+        return StringUtil.appendTwoSide(str, "", "");
+    }
 }

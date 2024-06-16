@@ -4,10 +4,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.Maps;
 import org.apache.commons.collections4.MapUtils;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -106,7 +103,7 @@ public class MapUtil {
      * @return
      */
     public static <K, V> Map.Entry<K, V> newMapEntry(K k, V v) {
-        return new DefaultMapEntry(k, v);
+        return new DefaultMapEntry<>(k, v);
     }
 
     static class DefaultMapEntry<K, V> implements Map.Entry<K, V> {
@@ -145,10 +142,10 @@ public class MapUtil {
 
             DefaultMapEntry<?, ?> that = (DefaultMapEntry<?, ?>) o;
 
-            if (key != null ? !key.equals(that.key) : that.key != null) {
+            if (!Objects.equals(key, that.key)) {
                 return false;
             }
-            return value != null ? value.equals(that.value) : that.value == null;
+            return Objects.equals(value, that.value);
         }
 
         @Override
@@ -177,20 +174,20 @@ public class MapUtil {
         return new HashMap<>(0);
     }
 
-    public static Integer getAsInteger(Map<String, Object> sourceMap, String fileName) {
-        final Object value = MapUtils.getObject(sourceMap, fileName);
+    public static Integer getAsInteger(Map<String, Object> map, String key) {
+        final Object value = MapUtils.getObject(map, key);
 
         return NumberUtil.toInteger(value);
     }
 
-    public static Long getAsLong(Map<String, Object> sourceMap, String fileName) {
-        final Object value = MapUtils.getObject(sourceMap, fileName);
+    public static Long getAsLong(Map<String, Object> map, String key) {
+        final Object value = MapUtils.getObject(map, key);
 
         return NumberUtil.toLong(value);
     }
 
-    public static String getAsString(Map<String, Object> sourceMap, String fileName) {
-        final Object value = MapUtils.getObject(sourceMap, fileName);
+    public static String getAsString(Map<String, Object> map, String key) {
+        final Object value = MapUtils.getObject(map, key);
         if (value == null) {
             return null;
         }
@@ -201,8 +198,8 @@ public class MapUtil {
         return String.valueOf(value);
     }
 
-    public static Date getAsDate(Map<String, Object> sourceMap, String fileName) {
-        final Object value = MapUtils.getObject(sourceMap, fileName);
+    public static Date getAsDate(Map<String, Object> map, String key) {
+        final Object value = MapUtils.getObject(map, key);
         if (value == null) {
             return null;
         }

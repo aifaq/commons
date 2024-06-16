@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.function.Function;
 
 /**
  * @author Wang Wei [5waynewang@gmail.com]
@@ -142,5 +143,9 @@ public class ObjectUtil {
 		}
 
 		return Objects.equals(source, target);
+	}
+
+	public static <S, T> T defaultIfNull(S s, Function<? super S, ? extends T> mapper, T defaultValue) {
+		return s != null ? mapper.apply(s) : defaultValue;
 	}
 }
